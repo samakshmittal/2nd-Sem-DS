@@ -1,7 +1,7 @@
 #include <stdio.h>
 int main(){
-    char A[100], ch;
     int ub, j, n, loc, z=0;
+    char A[n], ch;
     printf("Enter size of array");
     scanf("%d", &n);                               //Enter size of array
     printf("Enter elements in array\n");
@@ -30,7 +30,7 @@ int main(){
             }
             printf("\nAfter insertion : ");
             A[loc-1]=ch;                             //Inserting element
-            for (int j=0; j<9; j++){                 //Printing array after insertion
+            for (int j=0; j<n; j++){                 //Printing array after insertion
                 printf("%c ", A[j]);
             }
             z=1;
