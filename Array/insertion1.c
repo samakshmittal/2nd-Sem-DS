@@ -14,8 +14,10 @@ int main(){
     for (j=0; j<n; j++){                              //Printing elements in an array before insertion
         printf("%c ", A[j]);
     }
+    printf("\n");
     printf("Enter location where element is to be inserted");        //Enter location where element is to be inserted
     scanf("%d", &loc);                    //Enter location of new element
+    ub=n-1;
     while(z==0)
     {
         if(loc<n)
