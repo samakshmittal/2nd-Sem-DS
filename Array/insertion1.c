@@ -1,9 +1,9 @@
 #include <stdio.h>
 int main(){
-    int ub, j, n, loc, z=0;
-    char A[n], ch;
+    int ub, i, j, n, loc, z=0;
     printf("Enter size of array");
     scanf("%d", &n);                               //Enter size of array
+    char A[n], ch;
     printf("Enter elements in array\n");
     for (j=0; j<n; j++){                              //Entering elements in an array
         printf("Enter element A[%d]", j);
@@ -17,7 +17,8 @@ int main(){
     printf("\n");
     printf("Enter location where element is to be inserted");        //Enter location where element is to be inserted
     scanf("%d", &loc);                    //Enter location of new element
-    ub=n-1;
+    i=n-1;
+    ub=i;
     while(z==0)
     {
         if(loc<n)
