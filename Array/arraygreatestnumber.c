@@ -16,7 +16,7 @@ int main(){
             printf("Value of a[%d]=%d\n",i, a[i]);
     }
     for(i=0; i<n; i++){
-        int z=0, y=0;
+        int z=0, y=0;                                    //rejecting small values
         for(j=0; j<n; j++){
             if(i!=j){
                 if(a[i]<a[j]){
@@ -26,7 +26,7 @@ int main(){
         }
         if(z==0){
             for(j=0; j<n; j++){
-            if(i!=j){
+            if(i!=j){                                //rejecting similar greatest values
                 if(a[i]==a[j]){
                     y=2;
                 }
@@ -38,7 +38,7 @@ int main(){
             break;
         }
         else if(z==0){
-            printf("%d is greatest", a[i]);
+            printf("%d is greatest", a[i]);                 //printing greatest value
         } 
     }
     return 0;
