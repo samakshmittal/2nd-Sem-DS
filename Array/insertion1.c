@@ -3,16 +3,16 @@ int main(){
     int ub, i, j, n, loc, z=0;
     printf("Enter size of array");
     scanf("%d", &n);                               //Enter size of array
-    char A[n], ch;
+    int A[n], ch;
     printf("Enter elements in array\n");
     for (j=0; j<n; j++){                              //Entering elements in an array
         printf("Enter element A[%d]", j);
-        scanf("%c ", &A[j]);
+        scanf("%d ", &A[j]);
     }
     printf("\n");
     printf("Before insertion : ");
     for (j=0; j<n; j++){                              //Printing elements in an array before insertion
-        printf("%c ", A[j]);
+        printf("%d ", A[j]);
     }
     printf("\n");
     printf("Enter location where element is to be inserted");        //Enter location where element is to be inserted
@@ -24,7 +24,7 @@ int main(){
         if(loc<n)
         {
             printf("Enter element to be inserted");
-            scanf("%c", &ch);                        //Enter element to be inserted
+            scanf("%d", &ch);                        //Enter element to be inserted
             while(ub>=loc){                          //Making space for element
                 A[ub+1]=A[ub];
                 ub--;
@@ -32,7 +32,7 @@ int main(){
             printf("\nAfter insertion : ");
             A[loc-1]=ch;                             //Inserting element
             for (int j=0; j<n; j++){                 //Printing array after insertion
-                printf("%c ", A[j]);
+                printf("%d ", A[j]);
             }
             z=1;
         }
