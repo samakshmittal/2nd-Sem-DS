@@ -55,7 +55,7 @@ int main(){
                     m=1;
                 }
                 else{
-                    printf("Invalid input");
+                    printf("Invalid input\n");
                     m=0;
                 }
             }
@@ -96,7 +96,7 @@ int main(){
                     m=1;
                 }
                 else{
-                    printf("Invalid input");
+                    printf("Invalid input\n");
                     m=0;
                 }
             }
@@ -137,15 +137,15 @@ int main(){
                     m=1;
                 }
                 else{
-                    printf("Invalid input");
+                    printf("Invalid input\n");
                     m=0;
                 }
             }
         }
         else{
-            printf("Invalid input");
+            printf("Invalid input\n");
             y=0;
         }
-}
-return 0;
+    }
+    return 0;
 }
