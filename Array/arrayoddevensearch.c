@@ -1,7 +1,7 @@
 //Odd even search in array
 #include <stdio.h>
 int main(){
-    int i, n, j;
+    int i, n, even, j, ev, odd, od;
     printf("Enter size of array");
     scanf("%d", &n);                               //Enter size of array
     int a[n];
@@ -15,3 +15,42 @@ int main(){
     for(i=0; i<n; i++){                             //Print elements of array
             printf("Value of a[%d]=%d\n",i, a[i]);
     }
+    printf("How many even locations you want to update");
+    scanf("%d", &even);                            //Enter number of even elements
+    for(j=1; j<=even; j++){
+        int z=0;
+        while(z==0){
+        printf("Enter even location");
+        scanf("%d", &ev);                            //Enter location of even elements
+        if(ev%2==0 && ev<n){
+            printf("Enter new element");                       //Enter new elements
+            scanf("%d", &a[ev]);
+            printf("Element at location %d is %d\n", ev, a[ev]);
+            z=1;
+        }
+        else{
+            printf("Invlaid input\n");
+            z=0;
+        }
+        }
+    }
+    printf("How many odd locations you want to update");
+    scanf("%d", &odd);                            //Enter number of odd elements
+    for(j=1; j<=odd; j++){
+        int z=0;
+        while(z==0){
+        printf("Enter odd location");
+        scanf("%d", &od);                            //Enter location of odd elements
+        if(od%2==0 && od<n){
+            printf("Enter new element");                       //Enter new elements
+            scanf("%d", &a[od]);
+            printf("Element at location %d is %d\n", od, a[od]);
+            z=1;
+        }
+        else{
+            printf("Invlaid input\n");
+            z=0;
+        }
+        }
+    }
+}
