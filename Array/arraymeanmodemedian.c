@@ -1,7 +1,7 @@
 //Odd even search in array
 #include <stdio.h>
 int main(){
-    int i, n, even1, even2, j, ev, odd, od, ran, ra, y=0, m=0, ab, yn, inp, all, mean=0, count=0, mean1;
+    int i, n, even1, even2, j, odd1, odd2, ran1, ran2, y=0, m=0, ab, yn, inp, all, mean=0, count=0, mean1, mno=0;
     printf("Enter size of array");
     scanf("%d", &n);                               //Enter size of array
     int a[n];
@@ -23,12 +23,12 @@ int main(){
             printf("Which location you want to find : even (1) or odd(2) or mixed(3)");
             scanf("%d", &ab);
             if(ab==1){
-                int z=0;
                 printf("Starting even location for finding");
                 scanf("%d", &even1);                            //Enter starting location for even element
                 printf("Ending even location for finding");
                 scanf("%d", &even2);                            //Enter ending location for even element
                 if(even1<even2 && even2<n &&even1%2==0 &&even2%2==0){
+                    int z=0;
                     while(z==0){
                         printf("Only want to find condition for even elements between location(1) or for all locations between range(2)");
                         scanf("%d", &all);
@@ -74,12 +74,13 @@ int main(){
                 }
             }
             else if(ab==2){
-                int z=0;
+                //while(mno==0){
                 printf("Starting odd location for finding");
                 scanf("%d", &odd1);                            //Enter starting location for even element
                 printf("Ending odd location for finding");
                 scanf("%d", &odd2);                            //Enter ending location for even element
                 if(odd1<odd2 && odd2<n && odd1%2!=0 && odd2%2!=0){
+                    int z=0;
                     while(z==0){
                         printf("Only want to find condition for even elements between location(1) or for all locations between range(2)");
                         scanf("%d", &all);
@@ -104,9 +105,8 @@ int main(){
                         else{
                             printf("Invlaid input\n");
                             z=0;
-                        }
+                     //   }
                     }
-                }
                 while(m==0){
                     printf("Do you want to find other mean also : Y(1) or N(0)");      //Asking for further updation
                     scanf("%d", &yn);
@@ -122,6 +122,11 @@ int main(){
                         printf("Invalid input\n");
                         m=0;
                     }
+                }
+                // else{
+                //     printf("Invalid input");
+                //     mno=0;
+                // }
                 }
             }
             else if(ab==3){
@@ -175,11 +180,13 @@ int main(){
                     }
                 }
             }
-        
-        else{
-            printf("Invalid input\n");         //Asking for correct input after wrong input
-            y=0;
+        }
         }
     }
+    //     else{
+    //         printf("Invalid input\n");         //Asking for correct input after wrong input
+    //         y=0;
+    //     }
+    // }
     return 0;
 }
