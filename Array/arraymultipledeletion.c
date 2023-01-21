@@ -21,26 +21,26 @@ int main(){
     for(j=1; j<=no; j++){
         int z=0;
         while(z==0){
-        printf("Enter location of element to be deleted");
-        scanf("%d", &loc);
-        if(loc<n){                                         //Elements searching
-        while((n-1)>=loc){                          //Making space for element
-                a[loc]=a[loc+1];
-                loc++;
+            printf("Enter location of element to be deleted");
+            scanf("%d", &loc);
+            if(loc<n){                                         //Elements searching
+            while((n-1)>=loc){                          //Making space for element
+                    a[loc]=a[loc+1];
+                    loc++;
+                }
+                n--;
+                printf("\nAfter deletion : "); 
+                for (int j=0; j<n; j++){                 //Printing array after deletion
+                    printf("%d ", a[j]);
+                }
+                printf("\n");
+                z=1;
             }
-            n--;
-            printf("\nAfter deletion : "); 
-            for (int j=0; j<n; j++){                 //Printing array after deletion
-                printf("%d ", a[j]);
+            else{
+                printf("Invalid location\n");
+                z=0;
             }
-            printf("\n");
-            z=1;
-    }
-    else{
-        printf("Invalid location\n");
-        z=0;
-    }
         }
     }
+    return 0;
 }
-//Repeat input of location after invalid input
