@@ -20,9 +20,9 @@ int main(){
     scanf("%d", &inp);
     if(inp==1){
         while(mno==0){
-            printf("Which location you want to find : even (1) or odd(2) or mixed(3)");
-            scanf("%d", &ab);
             while(y==0){
+                printf("Which location you want to find : even (1) or odd(2) or mixed(3)");
+                scanf("%d", &ab);
                 int m=0;
                 if(ab==1){
                     printf("Starting even location for finding");
@@ -76,7 +76,7 @@ int main(){
                         mno=1;
                     }
                     else{
-                        printf("Invalid input");
+                        printf("Invalid input\n");
                         mno=0;
                     }
                 }
@@ -193,10 +193,5 @@ int main(){
             }
         }
     }
-    //     else{
-    //         printf("Invalid input\n");         //Asking for correct input after wrong input
-    //         y=0;
-    //     }
-    // }
     return 0;
 }
