@@ -13,8 +13,9 @@ int main(){
     printf("\n");
     printf("Array is : ");
     for(i=0; i<n; i++){                             //Print elements of array
-            printf("Value of a[%d]=%d\n",i, a[i]);
+            printf("%d ", a[i]);
     }
+    printf("\n");
     for(i=0; i<n; i++){
         int z=0, y=0;                                    //rejecting small values
         for(j=0; j<n; j++){
