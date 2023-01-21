@@ -13,8 +13,9 @@ int main(){
     printf("\n");
     printf("Array is : ");
     for(i=0; i<n; i++){                             //Print elements of array
-            printf("Value of a[%d]=%d\n",i, a[i]);
+            printf("%d ", a[i]);
     }
+    printf("\n");
     while(y==0){
         printf("Which location you want to update : even (1) or odd(2) or mixed(3)");
         scanf("%d", &ab);
@@ -44,7 +45,7 @@ int main(){
                 }
             }
             while(m==0){
-                printf("Do you want to do other updation also : Y(1) or N(0)");
+                printf("Do you want to do other updation also : Y(1) or N(0)");      //Asking for further updation
                 scanf("%d", &yn);
                 if(yn==1){
                     y=0;
@@ -85,7 +86,7 @@ int main(){
                 }
             }
             while(m==0){
-                printf("Do you want to do other updation also : Y(1) or N(0)");
+                printf("Do you want to do other updation also : Y(1) or N(0)");         //Asking for further updation
                 scanf("%d", &yn);
                 if(yn==1){
                     y=0;
@@ -103,12 +104,12 @@ int main(){
         }
         else if(ab==3){
             printf("How many locations you want to update");
-            scanf("%d", &ran);                            //Enter number of odd elements
+            scanf("%d", &ran);                            //Enter number of elements
             for(j=1; j<=ran; j++){
                 int z=0;
                 while(z==0){
                 printf("Enter location");
-                scanf("%d", &ra);                            //Enter location of odd elements
+                scanf("%d", &ra);                            //Enter location of elements
                 if(ra<n){
                     printf("Enter new element");                       //Enter new elements
                     scanf("%d", &a[ra]);
@@ -126,7 +127,7 @@ int main(){
                 }
             }
             while(m==0){
-                printf("Do you want to do other updation also : Y(1) or N(0)");
+                printf("Do you want to do other updation also : Y(1) or N(0)");         //Asking for further updation
                 scanf("%d", &yn);
                 if(yn==1){
                     y=0;
@@ -143,7 +144,7 @@ int main(){
             }
         }
         else{
-            printf("Invalid input\n");
+            printf("Invalid input\n");         //Asking for correct input after wrong input
             y=0;
         }
     }
