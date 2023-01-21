@@ -18,15 +18,14 @@ int main(){
     printf("Enter number of elements to be searched");
     scanf("%d", &no);                                                   //Enter number of elements to be searched
     for(j=1; j<=no; j++){
-        int z=0;
         printf("Enter element to be searched");
         scanf("%d", &item);                                           //Elements searching
         for(i=0; i<=(n-1); i++){
             if(a[i]==item){
                 printf("Successful at location %d\n", i);
                 break;
+            }
         }
-    }
         if(i==n){
             printf("Search unsuccessful\n");
         }
