@@ -1,4 +1,4 @@
-//Odd even search in array
+//Odd even delete in array
 #include <stdio.h>
 int main(){
     int i, n, even, j, ev, odd, od, ran, ra, y=0, ab, yn;
