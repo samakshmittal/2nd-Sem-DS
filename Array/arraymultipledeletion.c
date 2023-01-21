@@ -13,7 +13,7 @@ int main(){
     printf("\n");
     printf("Array is : ");
     for(i=0; i<n; i++){                             //Print elements of array
-            printf("Value of a[%d]=%d\n",i, a[i]);
+            printf("%d ", a[i]);
     }
     while(ab==0){
         printf("Enter number of elements to be deleted");
@@ -39,7 +39,7 @@ int main(){
                         z=1;
                     }
                     else{
-                        printf("Invalid location\n");
+                        printf("Invalid location\n");          //Taking location again after invalid input
                         z=0;
                     }
                 }
@@ -47,7 +47,7 @@ int main(){
             ab=1;
         }
         else{
-            printf("Invalid input, try again");
+            printf("Invalid input, try again");                //Taking input again if number of elements to be deleted is more than total number of elements in the array
             ab=0;
         }
     }
