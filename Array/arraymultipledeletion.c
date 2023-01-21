@@ -1,7 +1,7 @@
 //Deletion of multiple elements in array
 #include <stdio.h>
 int main(){
-    int i, j, n, no, loc, z=0;
+    int i, j, n, no, loc;
     printf("Enter size of array");
     scanf("%d", &n);                               //Enter size of array
     int a[n];
@@ -19,6 +19,8 @@ int main(){
     scanf("%d", &no);                                                  //Enter number of elements to be deleted
     
     for(j=1; j<=no; j++){
+        int z=0;
+        while(z==0){
         printf("Enter location of element to be deleted");
         scanf("%d", &loc);
         if(loc<n){                                         //Elements searching
@@ -32,10 +34,13 @@ int main(){
                 printf("%d ", a[j]);
             }
             printf("\n");
+            z=1;
     }
     else{
         printf("Invalid location\n");
+        z=0;
     }
+        }
     }
 }
 //Repeat input of location after invalid input
