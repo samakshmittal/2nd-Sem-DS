@@ -21,10 +21,10 @@ int main(){
         scanf("%d", &ab);
         if(ab==1){
             int m=0, rep=0;
-            while(rep=0){
+            while(rep==0){
                 printf("How many even locations you want to update");
                 scanf("%d", &even);                            //Enter number of even elements
-                if(even<=n){
+                if(even<=(n/2)){
                     for(j=1; j<=even; j++){
                         int z=0;
                         while(z==0){
@@ -78,7 +78,7 @@ int main(){
             while(rep==0){
                 printf("How many odd locations you want to update");
                 scanf("%d", &odd);                            //Enter number of odd elements
-                if(odd<=n){
+                if(odd<=n/2){
                     for(j=1; j<=odd; j++){
                         int z=0;
                         while(z==0){
@@ -131,7 +131,7 @@ int main(){
             while(rep==0){
                 printf("How many locations you want to update");
                 scanf("%d", &ran);                            //Enter number of elements
-                if(ran<=n){
+                if(ran<=n/2){
                     for(j=1; j<=ran; j++){
                         int z=0;
                         while(z==0){
