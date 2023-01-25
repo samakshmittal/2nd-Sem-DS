@@ -237,7 +237,7 @@ int main(){
                             }
                         }
                         while(m==0){
-                            printf("Do you want to find other mean also : Y(1) or N(0)");      //Asking for further updation
+                            printf("Do you want to find other median also : Y(1) or N(0)");      //Asking for further updation
                             scanf("%d", &yn);
                             if(yn==1){
                                 y=0;
@@ -295,7 +295,7 @@ int main(){
                             }
                         }
                         while(m==0){
-                            printf("Do you want to find other mean also : Y(1) or N(0)");      //Asking for further updation
+                            printf("Do you want to find other median also : Y(1) or N(0)");      //Asking for further updation
                             scanf("%d", &yn);
                             if(yn==1){
                                 y=0;
@@ -352,7 +352,7 @@ int main(){
                             }
                         }
                         while(m==0){
-                            printf("Do you want to find other mean also : Y(1) or N(0)");      //Asking for further updation
+                            printf("Do you want to find other median also : Y(1) or N(0)");      //Asking for further updation
                             scanf("%d", &yn);
                             if(yn==1){
                                 y=0;
