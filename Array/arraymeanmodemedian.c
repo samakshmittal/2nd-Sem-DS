@@ -131,7 +131,7 @@ int main(){
                         }
                     }
                     else{
-                        printf("Invalid input");
+                        printf("Invalid input\n");
                         mno=0;
                     }
                 }
@@ -186,7 +186,7 @@ int main(){
                         }
                     }
                     else{
-                        printf("Invalid input");
+                        printf("Invalid input\n");
                         mno=0;
                     }
                 }
