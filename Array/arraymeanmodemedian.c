@@ -48,8 +48,8 @@ int main(){
                                     mean=mean+a[j];
                                     count++;
                                 }
-                                mean1=mean/count;
-                                printf("Mean of range is : %d\n", mean1);
+                                mean1=(float) (mean/count);
+                                printf("Mean of range is : %f\n", mean1);
                                 z=1;
                             }
                             else{
@@ -67,6 +67,7 @@ int main(){
                             else if(yn==0){
                                 y=1;
                                 m=1;
+                                mno=1;
                             }
                             else{
                                 printf("Invalid input\n");
@@ -104,8 +105,8 @@ int main(){
                                     mean=mean+a[j];
                                     count++;
                                 }
-                                mean1=mean/count;
-                                printf("Mean of range is : %d\n", mean1);
+                                mean1=(float) (mean/count);
+                                printf("Mean of range is : %f\n", mean1);
                                 z=1;
                             }
                             else{
@@ -123,6 +124,7 @@ int main(){
                             else if(yn==0){
                                 y=1;
                                 m=1;
+                                mno=1;
                             }
                             else{
                                 printf("Invalid input\n");
@@ -159,8 +161,8 @@ int main(){
                                     mean=mean+a[j];
                                     count++;
                                 }
-                                mean1=mean/count;
-                                printf("Mean of range is : %d\n", mean1);
+                                mean1=(float) (mean/count);
+                                printf("Mean of range is : %f\n", mean1);
                                 z=1;
                             }
                             else{
@@ -178,6 +180,7 @@ int main(){
                             else if(yn==0){
                                 y=1;
                                 m=1;
+                                mno=1;
                             }
                             else{
                                 printf("Invalid input\n");
