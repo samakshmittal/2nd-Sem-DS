@@ -83,9 +83,9 @@ int main(){
                 }
                 else if(ab==2){
                     printf("Starting odd location for finding");
-                    scanf("%d", &odd1);                            //Enter starting location for even element
+                    scanf("%d", &odd1);                            //Enter starting location for odd element
                     printf("Ending odd location for finding");
-                    scanf("%d", &odd2);                            //Enter ending location for even element
+                    scanf("%d", &odd2);                            //Enter ending location for odd element
                     if(odd1<odd2 && odd2<n && odd1%2!=0 && odd2%2!=0){
                         int z=0;
                         while(z==0){
@@ -139,9 +139,9 @@ int main(){
                 }
                 else if(ab==3){
                     printf("Starting location for finding");
-                    scanf("%d", &ran1);                            //Enter starting location for even element
+                    scanf("%d", &ran1);                            //Enter starting location for element
                     printf("Ending location for finding");
-                    scanf("%d", &ran2);                            //Enter ending location for even element
+                    scanf("%d", &ran2);                            //Enter ending location for element
                     if(ran1<ran2 && ran2<n){
                         int z=0;
                         while(z==0){
@@ -163,6 +163,187 @@ int main(){
                                 }
                                 mean1=(float) (mean/count);
                                 printf("Mean of range is : %f\n", mean1);
+                                z=1;
+                            }
+                            else{
+                                printf("Invlaid input\n");
+                                z=0;
+                            }
+                        }
+                        while(m==0){
+                            printf("Do you want to find other mean also : Y(1) or N(0)");      //Asking for further updation
+                            scanf("%d", &yn);
+                            if(yn==1){
+                                y=0;
+                                m=1;
+                            }
+                            else if(yn==0){
+                                y=1;
+                                m=1;
+                                mno=1;
+                            }
+                            else{
+                                printf("Invalid input\n");
+                                m=0;
+                            }
+                        }
+                    }
+                    else{
+                        printf("Invalid input\n");
+                        mno=0;
+                    }
+                }
+            }
+        }
+    }
+    if(inp==3){
+        while(mno==0){
+            while(y==0){
+                printf("Which location you want to find : even (1) or odd(2) or mixed(3)");
+                scanf("%d", &ab);
+                int m=0;
+                if(ab==1){
+                    printf("Starting even location for finding");
+                    scanf("%d", &even1);                            //Enter starting location for even element
+                    printf("Ending even location for finding");
+                    scanf("%d", &even2);                            //Enter ending location for even element
+                    if(even1<even2 && even2<n && even1%2==0 && even2%2==0){
+                        int z=0;
+                        while(z==0){
+                            printf("Only want to find condition for even elements between location(1) or for all locations between range(2)");
+                            scanf("%d", &all);
+                            if(all==1){
+                                for(j=even1; j<=even2; j=j+2){
+                                    count++;
+                                }
+                                if(count%2==0 && even2-even1!=2){
+                                    printf("Median of range is : %d and %d\n", a[(even1)+(((even2-even1)/2)-1)], a[(even1)+(((even2-even1)/2)+1)]);
+                                }
+                                else if(count%2==0 && even2-even1==2){
+                                    printf("No median\n");
+                                }
+                                else{
+                                    printf("Median of range is : %d\n", a[(even1)+((even2-even1)/2)]);
+                                }
+                                z=1;
+                            }
+                            else if(all==2){
+                                printf("Median of range is : %d\n", a[(even1)+((even2-even1)/2)]);
+                                z=1;
+                            }
+                            else{
+                                printf("Invlaid input\n");
+                                z=0;
+                            }
+                        }
+                        while(m==0){
+                            printf("Do you want to find other mean also : Y(1) or N(0)");      //Asking for further updation
+                            scanf("%d", &yn);
+                            if(yn==1){
+                                y=0;
+                                m=1;
+                            }
+                            else if(yn==0){
+                                y=1;
+                                m=1;
+                                mno=1;
+                            }
+                            else{
+                                printf("Invalid input\n");
+                                m=0;
+                            }
+                        }
+                        mno=1;
+                    }
+                    else{
+                        printf("Invalid input\n");
+                        mno=0;
+                    }
+                }
+                else if(ab==2){
+                    printf("Starting odd location for finding");
+                    scanf("%d", &odd1);                            //Enter starting location for odd element
+                    printf("Ending odd location for finding");
+                    scanf("%d", &odd2);                            //Enter ending location for odd element
+                    if(odd1<odd2 && odd2<n && odd1%2!=0 && odd2%2!=0){
+                        int z=0;
+                        while(z==0){
+                            printf("Only want to find condition for odd elements between location(1) or for all locations between range(2)");
+                            scanf("%d", &all);
+                            if(all==1){
+                                for(j=odd1; j<=odd2; j=j+2){
+                                    count++;
+                                }
+                                if(count%2==0){
+                                    printf("Median of range is : %d and %d\n", a[(odd1)+(((odd2-odd1)/2)-1)], a[(odd1)+(((odd2-odd1)/2)+1)]);
+                                }
+                                else if(count%2==0 && odd2-odd1==2){
+                                    printf("No median\n");
+                                }
+                                else{
+                                    printf("Median of range is : %d\n", a[(odd1)+((odd2-odd1)/2)]);
+                                }
+                                z=1;
+                            }
+                            else if(all==2){
+                                printf("Median of range is : %d\n", a[(odd1)+((odd2-odd1)/2)]);
+                                z=1;
+                            }
+                            else{
+                                printf("Invlaid input\n");
+                                z=0;
+                            }
+                        }
+                        while(m==0){
+                            printf("Do you want to find other mean also : Y(1) or N(0)");      //Asking for further updation
+                            scanf("%d", &yn);
+                            if(yn==1){
+                                y=0;
+                                m=1;
+                            }
+                            else if(yn==0){
+                                y=1;
+                                m=1;
+                                mno=1;
+                            }
+                            else{
+                                printf("Invalid input\n");
+                                m=0;
+                            }
+                        }
+                    }
+                    else{
+                        printf("Invalid input\n");
+                        mno=0;
+                    }
+                }
+                else if(ab==3){
+                    printf("Starting location for finding");
+                    scanf("%d", &ran1);                            //Enter starting location for element
+                    printf("Ending location for finding");
+                    scanf("%d", &ran2);                            //Enter ending location for element
+                    if(ran1<ran2 && ran2<n){
+                        int z=0;
+                        while(z==0){
+                            printf("Only want to find condition for alternate elements between location(1) or for all locations between range(2)");
+                            scanf("%d", &all);
+                            if(all==1){
+                                for(j=ran1; j<=ran2; j=j+2){
+                                    count++;
+                                }
+                                if(count%2==0){
+                                    printf("Median of range is : %d and %d\n", a[(ran1)+(((ran2-ran1)/2)-1)], a[(ran1)+(((ran2-ran1)/2)+1)]);
+                                }
+                                else if(count%2==0 && odd2-odd1==2){
+                                    printf("No median\n");
+                                }
+                                else{
+                                    printf("Median of range is : %d\n", a[(ran1)+((ran2-ran1)/2)]);
+                                }
+                                z=1;
+                            }
+                            else if(all==2){
+                                printf("Median of range is : %d\n", a[(ran1)+((ran2-ran1)/2)]);
                                 z=1;
                             }
                             else{
