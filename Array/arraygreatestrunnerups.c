@@ -15,31 +15,33 @@ int main(){
     for(i=0; i<n; i++){                             //Print elements of array
             printf("Value of a[%d]=%d\n",i, a[i]);
     }
-    for(i=0; i<n; i++){
-        int z=0, y=0;                                    //rejecting small values
-        for(j=0; j<n; j++){
-            if(i!=j){
-                if(a[i]<a[j]){
-                    z=1;
-                }
-            }    
-        }
-        if(z==0){
+    for(int xy=0; xy<n; xy++){
+        for(i=0; i<n; i++){
+            int z=0, y=0;                                    //rejecting small values
             for(j=0; j<n; j++){
-            if(i!=j){                                //rejecting similar greatest values
-                if(a[i]==a[j]){
-                    y=2;
-                }
-            }    
+                if(i!=j){
+                    if(a[i]<a[j]){
+                        z=1;
+                    }
+                }    
+            }
+            if(z==0){
+                for(j=0; j<n; j++){
+                if(i!=j){                                //rejecting similar greatest values
+                    if(a[i]==a[j]){
+                        y=2;
+                    }
+                }    
+            }
+            }
+            if(y==2){
+                printf("%d 1st runner up", a[i]);
+                break;
+            }
+            else if(z==0){
+                printf("%d is greatest", a[i]);                 //printing greatest value
+            } 
         }
-        }
-        if(y==2){
-            printf("Invalid input");
-            break;
-        }
-        else if(z==0){
-            printf("%d is greatest", a[i]);                 //printing greatest value
-        } 
     }
     return 0;
 }
