@@ -4,7 +4,7 @@ int main(){
     int i, n, even1, even2, j, odd1, odd2, ran1, ran2, y=0, ab, yn, inp, all, mean=0, count=0, mean1, mno=0;
     printf("Enter size of array");
     scanf("%d", &n);                               //Enter size of array
-    int a[n], co[n];
+    int a[n], co[n], arr[n];
     printf("Enter elements in array\n");                    //Enter elements in array
     for(i=0; i<n; i++){
             printf("Enter the value of a[%d]=",i);
@@ -400,6 +400,18 @@ int main(){
                 printf("Which location you want to find : even (1) or odd(2) or mixed(3)");
                 scanf("%d", &ab);
                 int m=0;
+                for(j=0; j<n; j++){
+                    arr[j]=a[j];
+                }
+                for(j=0; j<n; j++){
+                    for(int k=j+1; k<n; ++k){
+                        if(arr[j]>arr[k]){
+                            int mnop=arr[j];
+                            arr[j]=arr[k];
+                            arr[k]=mnop;
+                        }
+                    }
+                }
                 if(ab==1){
                     printf("Starting even location for finding");
                     scanf("%d", &even1);                            //Enter starting location for even element
@@ -415,18 +427,18 @@ int main(){
                                     count++;
                                 }
                                 if(count%2==0 && even2-even1!=2){
-                                    printf("Median of range is : %d and %d\n", a[(even1)+(((even2-even1)/2)-1)], a[(even1)+(((even2-even1)/2)+1)]);
+                                    printf("Median of range is : %d and %d\n", arr[(even1)+(((even2-even1)/2)-1)], arr[(even1)+(((even2-even1)/2)+1)]);
                                 }
                                 else if(count%2==0 && even2-even1==2){
                                     printf("No median\n");
                                 }
                                 else{
-                                    printf("Median of range is : %d\n", a[(even1)+((even2-even1)/2)]);
+                                    printf("Median of range is : %d\n", arr[(even1)+((even2-even1)/2)]);
                                 }
                                 z=1;
                             }
                             else if(all==2){
-                                printf("Median of range is : %d\n", a[(even1)+((even2-even1)/2)]);
+                                printf("Median of range is : %d\n", arr[(even1)+((even2-even1)/2)]);
                                 z=1;
                             }
                             else{
@@ -473,18 +485,18 @@ int main(){
                                     count++;
                                 }
                                 if(count%2==0){
-                                    printf("Median of range is : %d and %d\n", a[(odd1)+(((odd2-odd1)/2)-1)], a[(odd1)+(((odd2-odd1)/2)+1)]);
+                                    printf("Median of range is : %d and %d\n", arr[(odd1)+(((odd2-odd1)/2)-1)], arr[(odd1)+(((odd2-odd1)/2)+1)]);
                                 }
                                 else if(count%2==0 && odd2-odd1==2){
                                     printf("No median\n");
                                 }
                                 else{
-                                    printf("Median of range is : %d\n", a[(odd1)+((odd2-odd1)/2)]);
+                                    printf("Median of range is : %d\n", arr[(odd1)+((odd2-odd1)/2)]);
                                 }
                                 z=1;
                             }
                             else if(all==2){
-                                printf("Median of range is : %d\n", a[(odd1)+((odd2-odd1)/2)]);
+                                printf("Median of range is : %d\n", arr[(odd1)+((odd2-odd1)/2)]);
                                 z=1;
                             }
                             else{
@@ -529,19 +541,27 @@ int main(){
                                 for(j=ran1; j<=ran2; j=j+2){
                                     count++;
                                 }
-                                if(count%2==0){
-                                    printf("Median of range is : %d and %d\n", a[(ran1)+(((ran2-ran1)/2)-1)], a[(ran1)+(((ran2-ran1)/2)+1)]);
+                                if(count%2==0 && ran2-ran1!=2 && ran2-ran1!=1 && ran2-ran1!=3){
+                                    printf("Median of range is : %d\n", (((arr[(ran1)+(((ran2-ran1)/2)-1)])+(arr[(ran1)+(((ran2-ran1)/2)+1)]))/2));
                                 }
-                                else if(count%2==0 && odd2-odd1==2){
+                                else if(count%2==0 && ran2-ran1==2 || ran2-ran1==1 || ran2-ran1==3){
+                                    printf("No median\n");
+                                }
+                                else if(count==1){
                                     printf("No median\n");
                                 }
                                 else{
-                                    printf("Median of range is : %d\n", a[(ran1)+((ran2-ran1)/2)]);
+                                    printf("Median of range is : %d\n", arr[(ran1)+((ran2-ran1)/2)]);
                                 }
                                 z=1;
                             }
                             else if(all==2){
-                                printf("Median of range is : %d\n", a[(ran1)+((ran2-ran1)/2)]);
+                                if(ran2-ran1==1){
+                                    printf("Median of range is : %d\n", (((arr[ran1])+(arr[ran2]))/2));
+                                }
+                                else{
+                                    printf("Median of range is : %d\n", arr[(ran1)+((ran2-ran1)/2)]);
+                                }
                                 z=1;
                             }
                             else{
