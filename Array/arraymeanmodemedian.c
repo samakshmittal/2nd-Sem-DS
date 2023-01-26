@@ -40,7 +40,7 @@ int main(){
                                     mean=mean+a[j];
                                     count++;
                                 }
-                                mean1=(float) (mean/count);
+                                mean1=(float) (mean)/(float)(count);
                                 printf("Mean of range is : %f\n", mean1);
                                 z=1;
                             }
