@@ -1,7 +1,8 @@
 //Odd even search in array
 #include <stdio.h>
 int main(){
-    int i, n, even1, even2, j, odd1, odd2, ran1, ran2, y=0, ab, yn, inp, all, mean=0, count=0, mean1, mno=0;
+    int i, n, even1, even2, j, odd1, odd2, ran1, ran2, y=0, ab, yn, inp, all, mean=0, count=0, mno=0;
+    float mean1;
     printf("Enter size of array");
     scanf("%d", &n);                               //Enter size of array
     int a[n], co[n], arr[n];
@@ -39,8 +40,8 @@ int main(){
                                     mean=mean+a[j];
                                     count++;
                                 }
-                                mean1=mean/count;
-                                printf("Mean of range is : %d\n", mean1);
+                                mean1=(float) (mean/count);
+                                printf("Mean of range is : %f\n", mean1);
                                 z=1;
                             }
                             else if(all==2){
@@ -53,7 +54,7 @@ int main(){
                                 z=1;
                             }
                             else{
-                                printf("Invlaid input\n");
+                                printf("Invalid input\n");
                                 z=0;
                             }
                         }
@@ -96,8 +97,8 @@ int main(){
                                     mean=mean+a[j];
                                     count++;
                                 }
-                                mean1=mean/count;
-                                printf("Mean of range is : %d\n", mean1);
+                                mean1=(float) (mean/count);
+                                printf("Mean of range is : %f\n", mean1);
                                 z=1;
                             }
                             else if(all==2){
@@ -110,7 +111,7 @@ int main(){
                                 z=1;
                             }
                             else{
-                                printf("Invlaid input\n");
+                                printf("Invalid input\n");
                                 z=0;
                             }
                         }
@@ -152,8 +153,13 @@ int main(){
                                     mean=mean+a[j];
                                     count++;
                                 }
-                                mean1=mean/count;
-                                printf("Mean of range is : %d\n", mean1);
+                                if(ran2-ran1==1){
+                                    printf("No mean");
+                                }
+                                else{
+                                    mean1=(float) (mean/count);
+                                    printf("Mean of range is : %f\n", mean1);
+                                }
                                 z=1;
                             }
                             else if(all==2){
@@ -166,7 +172,7 @@ int main(){
                                 z=1;
                             }
                             else{
-                                printf("Invlaid input\n");
+                                printf("Invalid input\n");
                                 z=0;
                             }
                         }
@@ -249,7 +255,7 @@ int main(){
                                 z=1;
                             }
                             else{
-                                printf("Invlaid input\n");
+                                printf("Invalid input\n");
                                 z=0;
                             }
                         }
@@ -307,7 +313,7 @@ int main(){
                                 z=1;
                             }
                             else{
-                                printf("Invlaid input\n");
+                                printf("Invalid input\n");
                                 z=0;
                             }
                         }
@@ -364,7 +370,7 @@ int main(){
                                 z=1;
                             }
                             else{
-                                printf("Invlaid input\n");
+                                printf("Invalid input\n");
                                 z=0;
                             }
                         }
@@ -442,7 +448,7 @@ int main(){
                                 z=1;
                             }
                             else{
-                                printf("Invlaid input\n");
+                                printf("Invalid input\n");
                                 z=0;
                             }
                         }
@@ -500,7 +506,7 @@ int main(){
                                 z=1;
                             }
                             else{
-                                printf("Invlaid input\n");
+                                printf("Invalid input\n");
                                 z=0;
                             }
                         }
@@ -565,7 +571,7 @@ int main(){
                                 z=1;
                             }
                             else{
-                                printf("Invlaid input\n");
+                                printf("Invalid input\n");
                                 z=0;
                             }
                         }
