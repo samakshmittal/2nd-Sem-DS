@@ -40,7 +40,7 @@ int main(){
                                     mean=mean+a[j];
                                     count++;
                                 }
-                                mean1=(float) (mean)/(float)(count);
+                                mean1=(float)(mean)/(float)(count);
                                 printf("Mean of range is : %f\n", mean1);
                                 z=1;
                             }
@@ -49,7 +49,7 @@ int main(){
                                     mean=mean+a[j];
                                     count++;
                                 }
-                                mean1=(float) (mean/count);
+                                mean1=(float) (mean)/(float)(count);
                                 printf("Mean of range is : %f\n", mean1);
                                 z=1;
                             }
@@ -97,7 +97,7 @@ int main(){
                                     mean=mean+a[j];
                                     count++;
                                 }
-                                mean1=(float) (mean/count);
+                                mean1=(float) (mean)/(float)(count);
                                 printf("Mean of range is : %f\n", mean1);
                                 z=1;
                             }
@@ -106,7 +106,7 @@ int main(){
                                     mean=mean+a[j];
                                     count++;
                                 }
-                                mean1=(float) (mean/count);
+                                mean1=(float) (mean)/(float)(count);
                                 printf("Mean of range is : %f\n", mean1);
                                 z=1;
                             }
@@ -157,7 +157,7 @@ int main(){
                                     printf("No mean");
                                 }
                                 else{
-                                    mean1=(float) (mean/count);
+                                    mean1=(float) (mean)/(float)(count);
                                     printf("Mean of range is : %f\n", mean1);
                                 }
                                 z=1;
@@ -167,7 +167,7 @@ int main(){
                                     mean=mean+a[j];
                                     count++;
                                 }
-                                mean1=(float) (mean/count);
+                                mean1=(float) (mean)/(float)(count);
                                 printf("Mean of range is : %f\n", mean1);
                                 z=1;
                             }
