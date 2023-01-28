@@ -220,23 +220,23 @@ int main(){
                             scanf("%d", &all);
                             if(all==1){
                                 int ma;
-                                for(j=even1; j<=even2; j=j+2){
+                                for(int j=even1, l=0; j<=even2, l<=((even2-even1+1)/2); j=j+2, l++){
                                     int count1=0;
                                     for(int k=even1; k<=even2; k=k+2){
-                                        if(i!=j){
+                                        if(j!=k){
                                             if(a[j]==a[k]){
                                                 count1++;
                                             }
                                         }
                                     }
-                                    for(int l=0; l<(even2-even1+1); l++){
-                                        int z=a[j];
-                                        co[l]=count1;
-                                    }
+                                    co[l]=count1;
                                 }
-                                for(int l=0; l<(even2-even1+1); l++){
+                                for(int l=0; l<=((even2-even1+1)/2); l++){
+                                    printf("%d ", co[l]);
+                                }
+                                for(int l=0; l<=((even2-even1+1)/2); l++){
                                     int abc=0;                                    //rejecting small values
-                                    for(int f=0; f<(even2-even1+1); f++){
+                                    for(int f=0; f<((even2-even1+1)/2); f++){
                                         if(l!=f){
                                             if(co[l]<co[f]){
                                                 abc=1;
@@ -244,10 +244,11 @@ int main(){
                                         }    
                                     }
                                     if(abc==0){
-                                        ma=l;
+                                        ma=2*l;
+                                        
+                                printf("Mode of given range is : %d\n", a[even1+ma]);
                                     }
                                 }
-                                printf("Mode of given range is : %d\n", a[even1+ma]);
                                 z=1;
                             }
                             else if(all==2){
@@ -260,7 +261,7 @@ int main(){
                             }
                         }
                         while(m==0){
-                            printf("Do you want to find other median also : Y(1) or N(0)");      //Asking for further process
+                            printf("Do you want to find other mode also : Y(1) or N(0)");      //Asking for further process
                             scanf("%d", &yn);
                             if(yn==1){
                                 y=0;
@@ -318,7 +319,7 @@ int main(){
                             }
                         }
                         while(m==0){
-                            printf("Do you want to find other median also : Y(1) or N(0)");      //Asking for further process
+                            printf("Do you want to find other mode also : Y(1) or N(0)");      //Asking for further process
                             scanf("%d", &yn);
                             if(yn==1){
                                 y=0;
@@ -375,7 +376,7 @@ int main(){
                             }
                         }
                         while(m==0){
-                            printf("Do you want to find other median also : Y(1) or N(0)");      //Asking for further process
+                            printf("Do you want to find other mode also : Y(1) or N(0)");      //Asking for further process
                             scanf("%d", &yn);
                             if(yn==1){
                                 y=0;
