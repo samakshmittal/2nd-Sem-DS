@@ -222,7 +222,7 @@ int main(){
                                 int ma;
                                 for(int j=even1, l=0; j<=even2, l<=((even2-even1+1)/2); j=j+2, l++){
                                     int count1=0;
-                                    for(int k=even1; k<=even2; k=k+2){
+                                    for(int k=j; k<=even2; k=k+2){
                                         if(j!=k){
                                             if(a[j]==a[k]){
                                                 count1++;
@@ -242,18 +242,50 @@ int main(){
                                     }
                                     if(abc==0){
                                         ma=2*l;
-                                        while((co[l]/co[l])==1){   
+                                        if(co[l]>0){
                                         printf("Mode of given range is : %d\n", a[even1+ma]);
-                                        co[l]=0;}
-                                    }
-                                    else{
-                                        printf("No mode");
+                                        }
+                                        else if(co[l]==0){
+                                            printf("No mode\n");
+                                            break;
+                                        }
                                     }
                                 }
                                 z=1;
                             }
                             else if(all==2){
-                                printf("Median of range is : %d\n", a[(even1)+((even2-even1)/2)]);
+                                int ma;
+                                for(int j=even1, l=0; j<=even2, l<(even2-even1+1); j++, l++){
+                                    int count1=0;
+                                    for(int k=j; k<=even2; k++){
+                                        if(j!=k){
+                                            if(a[j]==a[k]){
+                                                count1++;
+                                            }
+                                        }
+                                    }
+                                    co[l]=count1;
+                                }
+                                for(int l=0; l<(even2-even1+1); l++){
+                                    int abc=0;                                    //rejecting small values
+                                    for(int f=0; f<(even2-even1+1); f++){
+                                        if(l!=f){
+                                            if(co[l]<co[f]){
+                                                abc=1;
+                                            }
+                                        }    
+                                    }
+                                    if(abc==0){
+                                        ma=l;
+                                        if(co[l]>0){
+                                        printf("Mode of given range is : %d\n", a[even1+ma]);
+                                        }
+                                        else if(co[l]==0){
+                                            printf("No mode\n");
+                                            break;
+                                        }
+                                    }
+                                }
                                 z=1;
                             }
                             else{
@@ -293,25 +325,76 @@ int main(){
                     if(odd1<odd2 && odd2<n && odd1%2!=0 && odd2%2!=0){
                         int z=0;
                         while(z==0){
-                            printf("Only want to find condition for odd elements between location(1) or for all locations between range(2)");
+                            printf("Only want to find condition for even elements between location(1) or for all locations between range(2)");
                             scanf("%d", &all);
                             if(all==1){
-                                for(j=odd1; j<=odd2; j=j+2){
-                                    count++;
+                                int ma;
+                                for(int j=odd1, l=0; j<=odd2, l<=((odd2-odd1+1)/2); j=j+2, l++){
+                                    int count1=0;
+                                    for(int k=j; k<=odd2; k=k+2){
+                                        if(j!=k){
+                                            if(a[j]==a[k]){
+                                                count1++;
+                                            }
+                                        }
+                                    }
+                                    co[l]=count1;
                                 }
-                                if(count%2==0){
-                                    printf("Median of range is : %d and %d\n", a[(odd1)+(((odd2-odd1)/2)-1)], a[(odd1)+(((odd2-odd1)/2)+1)]);
-                                }
-                                else if(count%2==0 && odd2-odd1==2){
-                                    printf("No median\n");
-                                }
-                                else{
-                                    printf("Median of range is : %d\n", a[(odd1)+((odd2-odd1)/2)]);
+                                for(int l=0; l<=((odd2-odd1+1)/2); l++){
+                                    int abc=0;                                    //rejecting small values
+                                    for(int f=0; f<((odd2-odd1+1)/2); f++){
+                                        if(l!=f){
+                                            if(co[l]<co[f]){
+                                                abc=1;
+                                            }
+                                        }    
+                                    }
+                                    if(abc==0){
+                                        ma=2*l;
+                                        if(co[l]>0){
+                                        printf("Mode of given range is : %d\n", a[odd1+ma]);
+                                        }
+                                        else if(co[l]==0){
+                                            printf("No mode\n");
+                                            break;
+                                        }
+                                    }
                                 }
                                 z=1;
                             }
                             else if(all==2){
-                                printf("Median of range is : %d\n", a[(odd1)+((odd2-odd1)/2)]);
+                                int ma;
+                                for(int j=odd1, l=0; j<=odd2, l<(odd2-odd1+1); j++, l++){
+                                    int count1=0;
+                                    for(int k=j; k<=odd2; k++){
+                                        if(j!=k){
+                                            if(a[j]==a[k]){
+                                                count1++;
+                                            }
+                                        }
+                                    }
+                                    co[l]=count1;
+                                }
+                                for(int l=0; l<(odd2-odd1+1); l++){
+                                    int abc=0;                                    //rejecting small values
+                                    for(int f=0; f<(odd2-odd1+1); f++){
+                                        if(l!=f){
+                                            if(co[l]<co[f]){
+                                                abc=1;
+                                            }
+                                        }    
+                                    }
+                                    if(abc==0){
+                                        ma=l;
+                                        if(co[l]>0){
+                                        printf("Mode of given range is : %d\n", a[odd1+ma]);
+                                        }
+                                        else if(co[l]==0){
+                                            printf("No mode\n");
+                                            break;
+                                        }
+                                    }
+                                }
                                 z=1;
                             }
                             else{
@@ -350,25 +433,76 @@ int main(){
                     if(ran1<ran2 && ran2<n){
                         int z=0;
                         while(z==0){
-                            printf("Only want to find condition for alternate elements between location(1) or for all locations between range(2)");
+                            printf("Only want to find condition for elements between location(1) or for all locations between range(2)");
                             scanf("%d", &all);
                             if(all==1){
-                                for(j=ran1; j<=ran2; j=j+2){
-                                    count++;
+                                int ma;
+                                for(int j=ran1, l=0; j<=ran2, l<=((ran2-ran1+1)/2); j=j+2, l++){
+                                    int count1=0;
+                                    for(int k=j; k<=ran2; k=k+2){
+                                        if(j!=k){
+                                            if(a[j]==a[k]){
+                                                count1++;
+                                            }
+                                        }
+                                    }
+                                    co[l]=count1;
                                 }
-                                if(count%2==0){
-                                    printf("Median of range is : %d and %d\n", a[(ran1)+(((ran2-ran1)/2)-1)], a[(ran1)+(((ran2-ran1)/2)+1)]);
-                                }
-                                else if(count%2==0 && odd2-odd1==2){
-                                    printf("No median\n");
-                                }
-                                else{
-                                    printf("Median of range is : %d\n", a[(ran1)+((ran2-ran1)/2)]);
+                                for(int l=0; l<=((ran2-ran1+1)/2); l++){
+                                    int abc=0;                                    //rejecting small values
+                                    for(int f=0; f<((ran2-ran1+1)/2); f++){
+                                        if(l!=f){
+                                            if(co[l]<co[f]){
+                                                abc=1;
+                                            }
+                                        }    
+                                    }
+                                    if(abc==0){
+                                        ma=2*l;
+                                        if(co[l]>0){
+                                        printf("Mode of given range is : %d\n", a[ran1+ma]);
+                                        }
+                                        else if(co[l]==0){
+                                            printf("No mode\n");
+                                            break;
+                                        }
+                                    }
                                 }
                                 z=1;
                             }
                             else if(all==2){
-                                printf("Median of range is : %d\n", a[(ran1)+((ran2-ran1)/2)]);
+                                int ma;
+                                for(int j=ran1, l=0; j<=ran2, l<(ran2-ran1+1); j++, l++){
+                                    int count1=0;
+                                    for(int k=j; k<=ran2; k++){
+                                        if(j!=k){
+                                            if(a[j]==a[k]){
+                                                count1++;
+                                            }
+                                        }
+                                    }
+                                    co[l]=count1;
+                                }
+                                for(int l=0; l<(ran2-ran1+1); l++){
+                                    int abc=0;                                    //rejecting small values
+                                    for(int f=0; f<(ran2-ran1+1); f++){
+                                        if(l!=f){
+                                            if(co[l]<co[f]){
+                                                abc=1;
+                                            }
+                                        }    
+                                    }
+                                    if(abc==0){
+                                        ma=l;
+                                        if(co[l]>0){
+                                        printf("Mode of given range is : %d\n", a[ran1+ma]);
+                                        }
+                                        else if(co[l]==0){
+                                            printf("No mode\n");
+                                            break;
+                                        }
+                                    }
+                                }
                                 z=1;
                             }
                             else{
@@ -393,6 +527,7 @@ int main(){
                                 m=0;
                             }
                         }
+                        mno=1;
                     }
                     else{
                         printf("Invalid input\n");
