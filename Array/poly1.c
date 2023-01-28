@@ -85,7 +85,6 @@
     }
   }
 
-  /* for rest over terms of polynomial 1 */
   while(i<t1)
   {
     p3[k].coeff=p1[i].coeff;
@@ -93,7 +92,6 @@
     i++;
     k++;
   }
-  /* for rest over terms of polynomial 2 */
   while(j<t2)
   {
     p3[k].coeff=p2[j].coeff;
@@ -102,7 +100,7 @@
     k++;
   }
 
-  return(k); /* k is number of terms in resultant polynomial*/
+  return(k);
  }
   int subtPoly(struct poly p1[10],struct poly p2[10],int t1,int t2,struct poly p3[10])
  {
