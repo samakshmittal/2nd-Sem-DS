@@ -232,9 +232,6 @@ int main(){
                                     co[l]=count1;
                                 }
                                 for(int l=0; l<=((even2-even1+1)/2); l++){
-                                    printf("%d ", co[l]);
-                                }
-                                for(int l=0; l<=((even2-even1+1)/2); l++){
                                     int abc=0;                                    //rejecting small values
                                     for(int f=0; f<((even2-even1+1)/2); f++){
                                         if(l!=f){
@@ -245,8 +242,12 @@ int main(){
                                     }
                                     if(abc==0){
                                         ma=2*l;
-                                        
-                                printf("Mode of given range is : %d\n", a[even1+ma]);
+                                        while((co[l]/co[l])==1){   
+                                        printf("Mode of given range is : %d\n", a[even1+ma]);
+                                        co[l]=0;}
+                                    }
+                                    else{
+                                        printf("No mode");
                                     }
                                 }
                                 z=1;
