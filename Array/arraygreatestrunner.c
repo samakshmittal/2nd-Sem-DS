@@ -1,35 +1,7 @@
 //Greatest runner ups
 #include <stdio.h>
-void max(int a[], int n){
-    for(int i=0; i<n; i++){
-        int z=0, y=0;                                    //rejecting small values
-        for(int j=0; j<n; j++){
-            if(i!=j){
-                if(a[i]<a[j]){
-                    z=1;
-                }
-            }    
-        }
-        if(z==0){
-            for(int j=0; j<n; j++){
-            if(i!=j){                                //rejecting similar greatest values
-                if(a[i]==a[j]){
-                    y=2;
-                }
-            }    
-        }
-        }
-        if(y==2){
-            printf("Invalid input");
-            break;
-        }
-        else if(z==0){
-            printf("%d is greatest", a[i]);                 //printing greatest value
-        } 
-    }
-}
 int main(){
-    int i, n, j;
+    int x, b, c, d, i, j, n;
     printf("Enter size of array");
     scanf("%d", &n);                               //Enter size of array
     int a[n];
@@ -43,6 +15,69 @@ int main(){
     for(i=0; i<n; i++){                             //Print elements of array
             printf("Value of a[%d]=%d\n",i, a[i]);
     }
-    max(a, n);
+    for(i=0; i<n; i++){
+        int z=0;                                    //rejecting small values
+        for(j=0; j<n; j++){
+            if(i!=j){
+                if(a[i]<a[j]){
+                    z=1;
+                }
+            }    
+        }
+        if(z==0){
+            x=i; 
+            break;                //printing greatest value
+        }
+    }
+    for(i=0; i<n; i++){
+    int z=0;                                    //rejecting small values
+        if(i!=x){
+            for(j=0; j<n; j++){
+                if(i!=j && j!=x){
+                    if(a[i]<a[j]){
+                        z=1;
+                    }
+                }    
+            }
+            if(z==0){
+                printf("1st runner up = %d\n", a[i]);
+                b=i;
+                break;                //printing 1st runner up
+            }
+        } 
+    }
+    for(i=0; i<n; i++){
+    int z=0;                                    //rejecting small values
+        if(i!=x && i!=b){
+            for(j=0; j<n; j++){
+                if(i!=j && j!=x && j!=b){
+                    if(a[i]<a[j]){
+                        z=1;
+                    }
+                }    
+            }
+            if(z==0){
+                printf("2nd runner up = %d\n", a[i]);
+                c=i;
+                break;                //printing 2nd runner up
+            }
+        } 
+    }
+    for(i=0; i<n; i++){
+    int z=0;                                    //rejecting small values
+        if(i!=x && i!=b && i!=c){
+            for(j=0; j<n; j++){
+                if(i!=j && j!=x && j!=b && j!=c){
+                    if(a[i]<a[j]){
+                        z=1;
+                    }
+                }    
+            }
+            if(z==0){
+                printf("3rd runner up = %d\n", a[i]);
+                break;                //printing 3rd runner up
+            }
+        } 
+    }
     return 0;
 }
