@@ -33,7 +33,7 @@ int main(){
         a1[i]->next=a1[a];
     }
     struct ab *temp=a1[0];
-    while(temp!=NULL){
+    while(temp!=-1){
         printf("%d\n", temp->data);
         temp=temp->next;
     }
