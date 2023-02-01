@@ -22,7 +22,7 @@ int main(){
             prev=p;
         }
     }
-    printf("Enter element to be searched");
+    printf("Enter element to be inserted");
     scanf("%d", &x);
     struct ab *temp=head;
     while(temp!=NULL){
