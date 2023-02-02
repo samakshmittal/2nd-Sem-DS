@@ -23,7 +23,7 @@ int main(){
         }
     }
     avail=malloc(sizeof(struct node));
-    printf("Enter location");
+    printf("Enter location (starting from 0)");
     scanf("%d", &a);
     if(a<n){
         prev=head;
