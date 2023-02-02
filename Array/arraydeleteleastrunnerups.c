@@ -19,14 +19,14 @@ int main(){
         int z=0;                                    //rejecting small values
         for(j=0; j<n; j++){
             if(i!=j){
-                if(a[i]<a[j]){
+                if(a[i]>a[j]){
                     z=1;
                 }
             }    
         }
         if(z==0){
             x=i; 
-            break;                //printing greatest value
+            break;                //printing least value
         }
     }
     for(i=0; i<n; i++){
@@ -91,12 +91,10 @@ int main(){
             }
             if(z==0){
                 printf("3rd least runner up = %d\n", a[i]);
+                d=i;
                 break;                //printing 3rd runner up
             }
         } 
-    }
-    if(d<x){
-        x--;
     }
     while(n>d){                       //Deleting 3rd least runner up
         a[d]=a[d+1];
