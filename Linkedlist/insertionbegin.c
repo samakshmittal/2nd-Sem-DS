@@ -28,10 +28,10 @@ int main(){
     }
     else{        
         new=avail;
-        avail=avail->next;
-        printf("Enter data of node");
+        //avail=avail->next;
+        printf("Enter data of new node");
         scanf("%d", &new->data);
-        new->next=head;
+        new->next=head; 
         head=new;
     }
     p=head;
