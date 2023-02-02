@@ -91,6 +91,7 @@ int main(){
             }
             if(z==0){
                 printf("3rd runner up = %d\n", a[i]);
+                d=i;
                 break;                //printing 3rd runner up
             }
         } 
