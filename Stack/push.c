@@ -3,7 +3,6 @@ int top=-1;
 void enter(int stack[], int e);
 void display(int stack[]);
 void push(int stack[], int n);
-int pop(int stack[], int n);
 int main(){
     int n, e;
     printf("Enter size of array");
@@ -16,8 +15,6 @@ int main(){
     }
     display(stack);
     push(stack, n);
-    display(stack);
-    pop(stack,n);
     display(stack);
     return 0;
 }
@@ -51,13 +48,5 @@ void push(int stack[], int n){
         scanf("%d", &val);
         top++;
         stack[top]=val;
-    }
-}
-int pop(int stack[], int n){
-    if (top==-1){
-        printf("\nUnderflow\n");
-    }
-    else{
-        top--;
     }
 }
