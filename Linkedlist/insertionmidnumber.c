@@ -23,7 +23,7 @@ int main(){
         }
     }
     avail=malloc(sizeof(struct node));
-    printf("Enter data after which new node is to be put");
+    printf("Enter data before which new node is to be put");
     scanf("%d", &a);
     prev=head;
     p=head;
