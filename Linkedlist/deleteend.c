@@ -22,11 +22,15 @@ int main(){
             prev=p;
         }
     }
+    p=head;
     if(head==NULL){
         printf("Underflow");
     }
     else{
-        ptr=prev;
+        while(p->next!=NULL){
+            ptr=p;
+            p=p->next;
+        }
         ptr->next=NULL;
     }
     p=head;
