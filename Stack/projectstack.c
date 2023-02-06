@@ -5,7 +5,7 @@ void display(int stack[]);
 void push(int stack[], int n);
 int pop(int stack[], int n);
 int main(){
-    int n, e;
+    int n, e, ch;
     printf("Enter size of array");
     scanf("%d", &n);
     int stack[n];
@@ -13,12 +13,18 @@ int main(){
     scanf("%d", &e);
     if(e<=n){
         enter(stack, e);
+        display(stack);
+        printf("What do you want to do:\n1 for push\n2 for pop\n");
+        scanf("%d", &ch);
+        switch(ch){
+            case 1:
+            push(stack, n);
+            display(stack);
+            case 2:
+            display(stack);
+            pop(stack, n);
+        }
     }
-    display(stack);
-    push(stack, n);
-    display(stack);
-    pop(stack,n);
-    display(stack);
     return 0;
 }
 void enter(int stack[], int e){
