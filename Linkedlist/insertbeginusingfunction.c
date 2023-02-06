@@ -5,20 +5,7 @@ struct node{
     struct node *next;
 };
 
-void insertend(struct node *prev){
-    struct node *avail, *new;
-    avail=malloc(sizeof(struct node));
-    if(avail==NULL){
-        printf("Overflow");
-    }
-    else{        
-        new=avail;
-        printf("Enter data of node at end");
-        scanf("%d", &new->data);
-        new->next=NULL;
-        prev->next=new;
-    }
-}
+
 void insertbegin(struct node *head){
     struct node *avail, *new;
     avail=malloc(sizeof(struct node));
@@ -31,6 +18,20 @@ void insertbegin(struct node *head){
         scanf("%d", &new->data);
         new->next=head;
         head=new;
+    }
+}
+void insertend(struct node *prev){
+    struct node *avail, *new;
+    avail=malloc(sizeof(struct node));
+    if(avail==NULL){
+        printf("Overflow");
+    }
+    else{        
+        new=avail;
+        printf("Enter data of node at end");
+        scanf("%d", &new->data);
+        new->next=NULL;
+        prev->next=new;
     }
 }
 void display(struct node *head, struct node *p){
@@ -60,6 +61,7 @@ int main(){
         }
     }
     insertbegin(head);
+    display(head, p);
     insertend(prev);
     display(head, p);
     return 0;   
