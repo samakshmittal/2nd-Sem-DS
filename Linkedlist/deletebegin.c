@@ -8,7 +8,7 @@ int main(){
     int n, a;
     printf("Enter number of elements");
     scanf("%d", &n);
-    struct node *p, *head, *prev, *avail, *new;
+    struct node *p, *head, *prev, *avail, *new, *ptr;
     for(int i=0; i<n; i++){
         p=malloc(sizeof(struct node));
         scanf("%d", &p->data);
@@ -22,8 +22,13 @@ int main(){
             prev=p;
         }
     }
-    avail=malloc(sizeof(struct node));
-    
+    if(head==NULL){
+        printf("Underflow");
+    }
+    else{
+        ptr=head;
+        head=head->next;
+    }
     p=head;
     while(p!=NULL){
             printf("%d\n", p->data);
