@@ -24,7 +24,7 @@ void create(){
         }
     }
 }
-void insertbegin(head){
+void insertbegin(struct node *head){
     struct node *new, *avail;
     avail=malloc(sizeof(struct node));
     if(avail==NULL){
@@ -38,7 +38,7 @@ void insertbegin(head){
         head=new;
     }
 }
-void insertend(head){
+void insertend(struct node *head){
     struct node *new, *avail, *ptr;
     avail=malloc(sizeof(struct node));
     if(avail==NULL){
@@ -56,7 +56,30 @@ void insertend(head){
         ptr->next=new;
     }
 }
-void display(head){
+void insertmidnumber(struct node *head){
+    int a;
+    struct node *avail, *new, *ptr, *preptr;
+    avail=malloc(sizeof(struct node));
+    printf("Enter data before which new node is to be put");
+    scanf("%d", &a);
+    ptr=head;
+    preptr=head;
+    if(avail==NULL){
+        printf("Overflow");
+    }
+    else{        
+        new=avail;
+        printf("Enter data of new node");
+        scanf("%d", &new->data);
+        while(preptr->data!=a){
+            ptr=preptr;
+            preptr=preptr->next;
+        }
+        ptr->next=new;
+        new->next=preptr;
+    }
+}
+void display(struct node *head){
     struct node *temp;
     temp=head;
     while(temp!=NULL){
@@ -66,20 +89,25 @@ void display(head){
 }
 int main(){
     int ch;
+    create();
+    display(head);
     do{
-        printf("------------MAIN MENU--------------");
-        printf("Choose 1 for creating linkedlist");
-        printf("Choose 2 for inserting a new element at the beginning of the linkedlist");
+        printf("------------MAIN MENU--------------\n");
+        printf("Choose 1 for inserting a new element at the beginning of the linkedlist\n");
+        printf("Choose 2 for inserting a new element at the ending of the linkedlist\n");
+        printf("Choose 3 for inserting a new element at any location in middle of the linkedlist by searching number\n");
         scanf("%d", &ch);
         switch (ch){
             case 1:
-            create();
+            insertbegin(head);
             display(head);
             case 2:
             insertend(head);
             display(head);
+            case 3:
+            insertmidnumber(head);
+            display(head);
         }
-    }while(ch!=3);
-    getch();
+    }while(ch!=4);
     return 0;   
 }
