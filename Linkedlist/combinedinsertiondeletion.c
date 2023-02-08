@@ -79,6 +79,17 @@ void insertmidnumber(struct node *head){
         new->next=preptr;
     }
 }
+void deletebegin(struct node *head){
+    struct node *ptr;
+    if(head==NULL){
+        printf("Underflow");
+    }
+    else{
+        ptr=head;
+        head=head->next;
+        free(ptr);
+    }
+}
 void display(struct node *head){
     struct node *temp;
     temp=head;
@@ -92,22 +103,35 @@ int main(){
     create();
     display(head);
     do{
-        printf("------------MAIN MENU--------------\n");
-        printf("Choose 1 for inserting a new element at the beginning of the linkedlist\n");
-        printf("Choose 2 for inserting a new element at the ending of the linkedlist\n");
-        printf("Choose 3 for inserting a new element at any location in middle of the linkedlist by searching number\n");
+        printf("\n\n *****MAIN MENU *****");
+        printf("\n 1: Display the list");
+        printf("\n 2: Add a node at the beginning");
+        printf("\n 3: Add a node at the end");
+        printf("\n 4: Add a node before a given node");
+        printf("\n 5: Delete a node from the beginning");
+        printf("\n 6: Delete a node from the ending");
         scanf("%d", &ch);
         switch (ch){
             case 1:
+            display(head);
+            break;
+            case 2:
             insertbegin(head);
             display(head);
-            case 2:
+            break;
+            case 3:
             insertend(head);
             display(head);
-            case 3:
+            break;
+            case 4:
             insertmidnumber(head);
             display(head);
+            break;
+            case 5:
+            deletebegin(head);
+            display(head);
+            break;
         }
-    }while(ch!=4);
+    }while(ch!=10);
     return 0;   
 }
