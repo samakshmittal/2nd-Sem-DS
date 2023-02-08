@@ -89,6 +89,20 @@ void deletebegin(struct node *head){
         head=head->next;
     }
 }
+void deleteend(struct node *head){
+    struct node *ptr, *p;
+    p=head;
+    if(head==NULL){
+            printf("Underflow");
+        }
+    else{
+        while(p->next!=NULL){
+            ptr=p;
+            p=p->next;
+        }
+        ptr->next=NULL;
+    }
+}
 void display(struct node *head){
     struct node *temp;
     temp=head;
@@ -128,6 +142,10 @@ int main(){
             break;
             case 5:
             deletebegin(head);
+            display(head);
+            break;
+            case 6:
+            deleteend(head);
             display(head);
             break;
         }
