@@ -87,7 +87,6 @@ void deletebegin(struct node *head){
     else{
         ptr=head;
         head=head->next;
-        free(ptr);
     }
 }
 void display(struct node *head){
