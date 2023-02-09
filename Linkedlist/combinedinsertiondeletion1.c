@@ -39,10 +39,10 @@ int main(){
         head = display(head);
         break;
         case 3:
-        head= insertbeg(head);
+        head = insertbeg(head);
         break;
         case 4:
-        head= insertend(head);
+        head = insertend(head);
         break;
         }
     }while(option!=13);
@@ -92,21 +92,22 @@ struct node *insertbeg(struct node *head){
     return head;
 }
 struct node *insertend(struct node *head){
-    struct node *new, *avail, *ptr, *preptr;
+    struct node *new, *avail, *ptr;
     avail=malloc(sizeof(struct node));
     if(avail==NULL){
         printf("Overflow");
     }
     else{
-        ptr=head;
         new=avail;
+        ptr=head;
         printf("Enter data to be inserted at end");
         scanf("%d", &new->data);
-        while(ptr!=NULL){
+        while(ptr->next!=NULL){
             ptr=ptr->next;
         }
         ptr->next=new;
         new->next=NULL;
+        printf("f");
     }
     return head;
 }
