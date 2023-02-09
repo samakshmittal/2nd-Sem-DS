@@ -49,6 +49,9 @@ int main(){
         case 5:
         head = insertbefore(head);
         break;
+        case 6:
+        head = insertafter(head);
+        break;
         }
     }while(option!=13);
 }
@@ -136,6 +139,31 @@ struct node *insertbefore(struct node *head){
         }
         preptr->next=new;
         new->next=ptr;
+    }
+    return head;
+}
+struct node *insertafter(struct node *head){
+    struct node *new, *avail, *postptr, *ptr;
+    int a;
+    avail=malloc(sizeof(struct node));
+    if(avail==NULL){
+        printf("Overflow");
+    }
+    else{
+        new=avail;
+        printf("Enter node after which new node is to be inserted");
+        scanf("%d", &a);
+        printf("Enter data to be inserted");
+        scanf("%d", &new->data);
+        ptr=head;
+        postptr=head;
+        while(ptr->data!=a){
+            ptr=ptr->next;
+            postptr=ptr;
+        }
+        printf("f");
+        ptr->next=new;
+        new->next=postptr;
     }
     return head;
 }
