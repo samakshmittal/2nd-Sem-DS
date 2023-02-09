@@ -21,8 +21,8 @@ int main(){
             push(stack, n);
             display(stack);
             case 2:
-            display(stack);
             pop(stack, n);
+            display(stack);
         }
     }
     return 0;
