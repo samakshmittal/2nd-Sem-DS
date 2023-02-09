@@ -48,29 +48,22 @@ int main(){
     }while(option!=13);
 }
 struct node *create(struct node *head){
-    int n, i, a;
+    int n, i;
     printf("Enter maximum number of elements allowed in linkedlist");
     scanf("%d", &n);
-    printf("Enter number of elements in linkedlist");
-    scanf("%d", &a);
     struct node *prev, *p;
-    if(a<n){
-        for(i=0; i<a; i++){
-            p=malloc(sizeof(struct node));
-            scanf("%d", &p->data);
-            p->next=NULL;
-            if(i==0){
-                head=p;
-                prev=p;
-            }
-            else{
-                prev->next=p;
-                prev=p;
-            }
+    for(i=0; i<n; i++){
+        p=malloc(sizeof(struct node));
+        scanf("%d", &p->data);
+        p->next=NULL;
+        if(i==0){
+            head=p;
+            prev=p;
         }
-    }
-    else{
-        printf("Try again");
+        else{
+            prev->next=p;
+            prev=p;
+        }
     }
     return head;
 }
@@ -86,7 +79,7 @@ struct node *display(struct node *head){
 struct node *insertbeg(struct node *head){
     struct node *new, *avail;
     avail=malloc(sizeof(struct node));
-    if(avail!=NULL){
+    if(avail==NULL){
         printf("Overflow");
     }    
     else{
@@ -101,7 +94,7 @@ struct node *insertbeg(struct node *head){
 struct node *insertend(struct node *head){
     struct node *new, *avail, *ptr, *preptr;
     avail=malloc(sizeof(struct node));
-    if(avail!=NULL){
+    if(avail==NULL){
         printf("Overflow");
     }
     else{
