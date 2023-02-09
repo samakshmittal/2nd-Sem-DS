@@ -79,7 +79,7 @@ struct node *insertbeg(struct node *head){
         printf("Overflow");
     }    
     else{
-        avail=new;
+        new=avail;
         printf("Enter data to be add at beginning");
         scanf("%d", &new->data);
         new->next=head;
