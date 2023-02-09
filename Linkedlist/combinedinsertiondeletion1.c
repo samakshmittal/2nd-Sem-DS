@@ -130,7 +130,7 @@ struct node *insertbefore(struct node *head){
         scanf("%d", &new->data);
         ptr=head;
         preptr=head;
-        while(ptr->data==a){
+        while(ptr->data!=a){
             preptr=ptr;
             ptr=ptr->next;
         }
