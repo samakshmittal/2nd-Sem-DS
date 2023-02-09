@@ -7,10 +7,11 @@ struct node{
 struct node *head=NULL;
 struct node *create(struct node *);
 struct node *display(struct node *);
-struct node *insertbeg(struct node *);
+struct node *insertbegin(struct node *);
 struct node *insertend(struct node *);
 struct node *insertbefore(struct node *);
 struct node *insertafter(struct node *);
+struct node *deletebegin(struct node *);
 int main(){
     int option;
     do
@@ -41,7 +42,7 @@ int main(){
         head = display(head);
         break;
         case 3:
-        head = insertbeg(head);
+        head = insertbegin(head);
         break;
         case 4:
         head = insertend(head);
@@ -51,6 +52,9 @@ int main(){
         break;
         case 6:
         head = insertafter(head);
+        break;
+        case 7:
+        head = deletebegin(head);
         break;
         }
     }while(option!=13);
@@ -84,7 +88,7 @@ struct node *display(struct node *head){
     }
     return head;
 }
-struct node *insertbeg(struct node *head){
+struct node *insertbegin(struct node *head){
     struct node *new, *avail;
     avail=malloc(sizeof(struct node));
     if(avail==NULL){
@@ -155,7 +159,6 @@ struct node *insertafter(struct node *head){
         printf("Enter data to be inserted");
         scanf("%d", &new->data);
         ptr=head;
-        postptr=new;
         while(postptr->data!=a){
             postptr=ptr;
             ptr=ptr->next;
@@ -164,5 +167,12 @@ struct node *insertafter(struct node *head){
         postptr->next=new;
         new->next=ptr;
     }
+    return head;
+}
+struct node *deletebegin(struct node *head){
+    struct node *ptr;
+    ptr=head;
+    head=ptr->next;
+    free(ptr);
     return head;
 }
