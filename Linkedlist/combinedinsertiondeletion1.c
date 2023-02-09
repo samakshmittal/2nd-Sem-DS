@@ -9,6 +9,8 @@ struct node *create(struct node *);
 struct node *display(struct node *);
 struct node *insertbeg(struct node *);
 struct node *insertend(struct node *);
+struct node *insertbefore(struct node *);
+struct node *insertafter(struct node *);
 int main(){
     int option;
     do
@@ -43,6 +45,9 @@ int main(){
         break;
         case 4:
         head = insertend(head);
+        break;
+        case 5:
+        head = insertbefore(head);
         break;
         }
     }while(option!=13);
@@ -107,7 +112,30 @@ struct node *insertend(struct node *head){
         }
         ptr->next=new;
         new->next=NULL;
-        printf("f");
+    }
+    return head;
+}
+struct node *insertbefore(struct node *head){
+    struct node *new, *avail, *ptr, *preptr;
+    int a;
+    avail=malloc(sizeof(struct node));
+    if(avail==NULL){
+        printf("Overflow");
+    }
+    else{
+        new=avail;
+        printf("Enter node before which new node is to be inserted");
+        scanf("%d", &a);
+        printf("Enter data to be inserted");
+        scanf("%d", &new->data);
+        ptr=head;
+        preptr=head;
+        while(ptr->data==a){
+            preptr=ptr;
+            ptr=ptr->next;
+        }
+        preptr->next=new;
+        new->next=ptr;
     }
     return head;
 }
