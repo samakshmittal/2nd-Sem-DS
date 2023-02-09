@@ -16,6 +16,7 @@ struct node *deleteend(struct node *);
 struct node *deletegiven(struct node *);
 struct node *deleteafter(struct node *);
 struct node *deleteentire(struct node *);
+struct node *sort(struct node *);
 int main(){
     int option;
     do
@@ -71,6 +72,9 @@ int main(){
         break;
         case 11:
         head = deleteentire(head);
+        break;
+        case 12:
+        head = sort(head);
         break;
         }
     }while(option!=13);
@@ -243,5 +247,25 @@ struct node *deleteentire(struct node *head){
     }
     free(ptr);
     head->next=NULL;
+    return head;
+}
+struct node *sort(struct node *head)
+{
+    struct node *ptr, *preptr;
+    int temp;
+    ptr=head;
+    preptr=ptr;
+    while(ptr->next!=NULL){
+        preptr=ptr;
+        if(preptr->data <= ptr->data){
+            continue;
+        }
+        else{
+            temp=preptr->data;
+            preptr->data=ptr->data;
+            ptr->data=temp;
+        }
+        ptr=ptr->next;
+    }
     return head;
 }
