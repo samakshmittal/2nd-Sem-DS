@@ -12,6 +12,7 @@ struct node *insertend(struct node *);
 struct node *insertbefore(struct node *);
 struct node *insertafter(struct node *);
 struct node *deletebegin(struct node *);
+struct node *deleteend(struct node *);
 int main(){
     int option;
     do
@@ -55,6 +56,9 @@ int main(){
         break;
         case 7:
         head = deletebegin(head);
+        break;
+        case 8:
+        head = deleteend(head);
         break;
         }
     }while(option!=13);
@@ -173,6 +177,17 @@ struct node *deletebegin(struct node *head){
     struct node *ptr;
     ptr=head;
     head=ptr->next;
+    free(ptr);
+    return head;
+}
+struct node *deleteend(struct node *head){
+    struct node *ptr, *preptr;
+    ptr=head;
+    while(ptr->next!=NULL){
+        preptr=ptr;
+        ptr=ptr->next;
+    }
+    preptr->next=NULL;
     free(ptr);
     return head;
 }
