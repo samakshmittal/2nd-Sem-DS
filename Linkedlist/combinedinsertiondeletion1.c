@@ -8,6 +8,7 @@ struct node *head=NULL;
 struct node *create(struct node *);
 struct node *display(struct node *);
 struct node *insertbeg(struct node *);
+struct node *insertend(struct node *);
 int main(){
     int option;
     do
@@ -39,6 +40,9 @@ int main(){
         break;
         case 3:
         head= insertbeg(head);
+        break;
+        case 4:
+        head= insertend(head);
         break;
         }
     }while(option!=13);
@@ -87,10 +91,29 @@ struct node *insertbeg(struct node *head){
     }    
     else{
         new=avail;
-        printf("Enter data to be add at beginning");
+        printf("Enter data to be inserted at beginning");
         scanf("%d", &new->data);
         new->next=head;
         head=new;
+    }
+    return head;
+}
+struct node *insertend(struct node *head){
+    struct node *new, *avail, *ptr, *preptr;
+    avail=malloc(sizeof(struct node));
+    if(avail!=NULL){
+        printf("Overflow");
+    }
+    else{
+        ptr=head;
+        new=avail;
+        printf("Enter data to be inserted at end");
+        scanf("%d", &new->data);
+        while(ptr!=NULL){
+            ptr=ptr->next;
+        }
+        ptr->next=new;
+        new->next=NULL;
     }
     return head;
 }
