@@ -254,13 +254,9 @@ struct node *sort(struct node *head)
     struct node *ptr, *preptr;
     int temp;
     ptr=head;
-    preptr=ptr;
     while(ptr->next!=NULL){
         preptr=ptr;
-        if(preptr->data <= ptr->data){
-            continue;
-        }
-        else{
+        if(preptr->data > ptr->data){
             temp=preptr->data;
             preptr->data=ptr->data;
             ptr->data=temp;
