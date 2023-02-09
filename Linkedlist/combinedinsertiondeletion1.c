@@ -132,7 +132,6 @@ struct node *insertbefore(struct node *head){
         printf("Enter data to be inserted");
         scanf("%d", &new->data);
         ptr=head;
-        preptr=head;
         while(ptr->data!=a){
             preptr=ptr;
             ptr=ptr->next;
@@ -156,14 +155,14 @@ struct node *insertafter(struct node *head){
         printf("Enter data to be inserted");
         scanf("%d", &new->data);
         ptr=head;
-        postptr=head;
-        while(ptr->data!=a){
-            ptr=ptr->next;
+        postptr=new;
+        while(postptr->data!=a){
             postptr=ptr;
+            ptr=ptr->next;
         }
-        printf("f");
-        ptr->next=new;
-        new->next=postptr;
+        printf("%d", postptr->data);
+        postptr->next=new;
+        new->next=ptr;
     }
     return head;
 }
