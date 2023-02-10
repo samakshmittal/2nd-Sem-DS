@@ -30,17 +30,17 @@ int main(){
             }
         }
         printf("The value of array is ");
-        for(int i=0; i<m; i++){
-            for(int j=0; j<n; j++){
+        for(int i=0; i<o; i++){
+            for(int j=0; j<p; j++){
                 printf("%d ", b[i][j]);
             }
         }
         printf("\n");
         printf("Multiplication of 2 arrays ");
         for(int i=0; i<m; i++){
-            for(int j=0; j<n; j++){
+            for(int j=0; j<p; j++){
                 mul[i][j]=0;
-                for(int l=0; l<p; l++){
+                for(int l=0; l<n; l++){
                     mul[i][j]+=a[i][l]*b[l][j];
                 }
             }
