@@ -51,5 +51,8 @@ int main(){
             }
         }
     }
+    else{
+        printf("Multiplication can't be done");
+    }
     return 0;
 }
