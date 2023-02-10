@@ -21,10 +21,12 @@ int main(){
     if(m==n){
         printf("Transpose of given array ");
         for(int i=0; i<m; i++){
-            for(int j=0; j<n/2; j++){
-                int t=a[i][j];
-                a[i][j]=a[j][i];
-                a[j][i]=t;
+            for(int j=0; j<n; j++){
+                if(i>j){
+                    int t=a[i][j];
+                    a[i][j]=a[j][i];
+                    a[j][i]=t;
+                }
             }
         }
         for(int i=0; i<m; i++){
