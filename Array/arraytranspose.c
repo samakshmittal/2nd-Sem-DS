@@ -35,5 +35,8 @@ int main(){
             }
         }
     }
+    else{
+        printf("Transpose can't be found");
+    }
     return 0;
 }
