@@ -32,7 +32,7 @@ int main(){
         }
     }
     printf("\n");
-    printf("Sum fo 2 arrays ");
+    printf("Sum of 2 arrays ");
     for(int i=0; i<m; i++){
         for(int j=0; j<n; j++){
             s[i][j]=a[i][j]+b[i][j];
