@@ -280,10 +280,11 @@ struct node *sort(struct node *head)
         preptr=ptr;
         ptr=ptr->next;
     }
+    preptr=preptr->next;
     if(ptr->data > preptr->data){
-                temp=ptr->data;
-                ptr->data=preptr->data;
-                preptr->data=temp;
-            }
+        temp=ptr->data;
+        ptr->data=preptr->data;
+        preptr->data=temp;
+    }
     return head;
 }
