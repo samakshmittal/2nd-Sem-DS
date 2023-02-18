@@ -8,6 +8,7 @@ int main(){
         for(j=0; j<n; j++){
             scanf("%d", &arr[j]);
         }
+        
         x=arr[0];
         for(j=0; j<n; j++){
             if(arr[j]<x){
