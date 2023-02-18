@@ -266,7 +266,7 @@ struct node *sort(struct node *head)
     int temp;
     ptr=head;
     while(ptr->next!=head){
-        preptr=ptr;
+        
         if(preptr->data > ptr->data){
             temp=preptr->data;
             preptr->data=ptr->data;
@@ -274,11 +274,6 @@ struct node *sort(struct node *head)
         }
         preptr=ptr;
         ptr=ptr->next;
-    }
-    if(preptr->data > ptr->data){
-        temp=preptr->data;
-        preptr->data=ptr->data;
-        ptr->data=temp;
     }
     return head;
 }
