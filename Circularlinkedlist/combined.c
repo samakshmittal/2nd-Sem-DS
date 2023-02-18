@@ -272,12 +272,13 @@ struct node *sort(struct node *head)
             preptr->data=ptr->data;
             ptr->data=temp;
         }
+        preptr=ptr;
         ptr=ptr->next;
     }
     if(preptr->data > ptr->data){
-            temp=preptr->data;
-            preptr->data=ptr->data;
-            ptr->data=temp;
-        }
+        temp=preptr->data;
+        preptr->data=ptr->data;
+        ptr->data=temp;
+    }
     return head;
 }
