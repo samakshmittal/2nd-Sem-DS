@@ -256,6 +256,7 @@ struct node *sort(struct node *head)
     ptr=head;
     ptr1=head;
     while(ptr->next!=NULL){
+        ptr1=ptr->next;
         while(ptr1->next!=NULL){
             if(ptr->data > ptr1->data){
                 temp=ptr->data;
