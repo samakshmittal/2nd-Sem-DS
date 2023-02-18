@@ -262,18 +262,28 @@ struct node *deleteentire(struct node *head){
 }
 struct node *sort(struct node *head)
 {
-    struct node *ptr, *preptr;
+    struct node *ptr, *ptr1, *preptr;;
     int temp;
     ptr=head;
+    preptr=head;
+    ptr1=head;
     while(ptr->next!=head){
-        
-        if(preptr->data > ptr->data){
-            temp=preptr->data;
-            preptr->data=ptr->data;
-            ptr->data=temp;
+        ptr1=ptr->next;
+        while(ptr1->next!=head){
+            if(ptr->data > ptr1->data){
+                temp=ptr->data;
+                ptr->data=ptr1->data;
+                ptr1->data=temp;
+            }
+            ptr1=ptr1->next;
         }
         preptr=ptr;
         ptr=ptr->next;
     }
+    if(ptr->data > preptr->data){
+                temp=ptr->data;
+                ptr->data=preptr->data;
+                preptr->data=temp;
+            }
     return head;
 }
