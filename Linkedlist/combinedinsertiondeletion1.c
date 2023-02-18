@@ -264,7 +264,7 @@ struct node *sort(struct node *head)
             }
             ptr1=ptr1->next;
         }
-    }
     ptr=ptr->next;
+    }
     return head;
 }
