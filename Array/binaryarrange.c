@@ -14,9 +14,15 @@ int main(){
     for(i=0; i<n; i++){                             //Print elements of array
             printf("%d ", a[i]);
     }
-    for(i=0; i<n; i++){
-        for(j=0; j<n; j++){
+    for(i=0; i<n/2; i++){
+        for(j=n/2; j<n; j++){
             if(a[i]==0 && a[j]==1){
+                int t=a[i];
+                a[i]=a[j];
+                a[j]=a[i];
+                break;
+            }
+            else if(a[i]==1 && a[j]==0){
                 int t=a[i];
                 a[i]=a[j];
                 a[j]=a[i];
