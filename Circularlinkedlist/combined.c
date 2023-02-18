@@ -279,12 +279,13 @@ struct node *sort(struct node *head)
         ptr=ptr->next;
     }
     ptr1=head;
-    while(ptr1->next!=head){
-        if(ptr->data > ptr1->data){
+    if(ptr->data<ptr1->data){
+        while(ptr1->next!=head){
             temp=ptr->data;
             ptr->data=ptr1->data;
             ptr1->data=temp;
+            ptr1=ptr1->next;
         }
-    }     
+    }
     return head;
 }
