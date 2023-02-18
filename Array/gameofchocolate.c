@@ -6,7 +6,7 @@ int main(){
         scanf("%d", &n);
         int arr[n];
         for(j=0; j<n; j++){
-            scanf("%d", &arr[i]);
+            scanf("%d", &arr[j]);
         }
         x=arr[0];
         for(j=0; j<n; j++){
