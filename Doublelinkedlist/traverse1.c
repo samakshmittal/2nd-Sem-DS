@@ -16,6 +16,7 @@ struct node *create(struct node *start){
             new=malloc(sizeof(struct node));
             new->prev=NULL;
             new->next=NULL;
+            printf("Enter data");
             scanf("%d", &new->data);
             start=new;
             preptr=start;
@@ -24,6 +25,7 @@ struct node *create(struct node *start){
             new=malloc(sizeof(struct node));
             new->prev=preptr;
             preptr->next=new;
+            printf("Enter data");
             scanf("%d", &new->data);
             ptr=new;
         }
