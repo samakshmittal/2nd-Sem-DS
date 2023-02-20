@@ -23,7 +23,7 @@ int main(){
         else{
             prev1->next=p;
             s=prev1;
-            p->prev=s;
+            prev1->prev=s;
             prev1=p;
         }
     }
