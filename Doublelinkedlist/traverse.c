@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 struct node{
     struct node *prev;
     int data;
@@ -12,6 +13,7 @@ int main(){
     for(int i=0; i<n; i++){
         p=malloc(sizeof(struct node));
         scanf("%d", &p->data);
+        p->prev=NULL;
         p->next=NULL;
         if(i==0){
             head=p;
