@@ -18,9 +18,6 @@ int main(){
                     arr[0]=t;
                 }
             }
-            for(j=0; j<n; j++){
-            printf("%d ", arr[j]);
-        }
             n--;
         }
         for(j=0; j<n; j++){
