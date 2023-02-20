@@ -19,7 +19,7 @@ struct node *create(struct node *start){
             printf("Enter data");
             scanf("%d", &new->data);
             start=new;
-            preptr=start;
+            preptr=new;
         }
         else{
             new=malloc(sizeof(struct node));
