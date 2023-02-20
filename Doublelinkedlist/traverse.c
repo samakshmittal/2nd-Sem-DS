@@ -19,12 +19,11 @@ int main(){
             head=p;
             prev1=p;
             s=p;
-            head->prev=NULL;
         }
         else{
             prev1->next=p;
             s=prev1;
-            prev1->prev=s;
+            p->prev=s;
             prev1=p;
         }
     }
