@@ -9,7 +9,6 @@ struct node *start=NULL;
 struct node *create(struct node *start){
     struct node *new, *ptr, *preptr;
     int num=0;
-    printf("Enter -1 to stop");
     while(num!=-1){
         new=malloc(sizeof(struct node));
         new->prev=NULL;
@@ -25,6 +24,7 @@ struct node *create(struct node *start){
             new->prev=preptr;
             preptr=new;
         }
+        printf("Enter -1 to stop");
         scanf("%d", &num);
     }
     return start;
@@ -33,14 +33,15 @@ struct node *display(struct node *start){
     struct node *ptr;
     ptr=start;
     while(ptr!=NULL){
-        printf("%d", ptr->data);
+        printf("%d\n", ptr->prev);
+        printf("%d\n", ptr->data);
+        printf("%d\n", ptr->next);
         ptr=ptr->next;
     }
     return start;
 }
 int main(){
     start=create(start);
-    printf("aaa");
     start=display(start);
     return 0;
 }
