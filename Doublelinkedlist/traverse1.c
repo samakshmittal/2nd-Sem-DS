@@ -149,3 +149,26 @@ struct node *insertend(struct node *start){
     }
     return start;
 }
+/*struct node *insertbefore(struct node *start){
+    struct node *new, *ptr, *preptr;
+    new=malloc(sizeof(struct node));
+    if(new==NULL){
+        printf("Overflow");
+    }
+    else{
+        int a;
+        printf("Enter data before which")
+        printf("Enter data");
+        scanf("%d", &new->data);
+        ptr=start;
+        while (ptr->data!=a)
+        {
+            preptr=ptr;
+            ptr=ptr->next;
+        }
+        new->prev=preptr;
+        preptr->next=new;
+        new->next=NULL;
+    }
+    return start;
+}*/
