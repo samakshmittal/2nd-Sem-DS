@@ -50,10 +50,10 @@ int main(){
         case 3:
         start = insertbegin(start);
         break;
-        /*case 4:
+        case 4:
         start = insertend(start);
         break;
-        case 5:
+        /*case 5:
         start = insertbefore(start);
         break;
         case 6:
@@ -125,6 +125,26 @@ struct node *insertbegin(struct node *start){
         new->next=start;
         start->prev=new;
         start=new;
+    }
+    return start;
+}
+struct node *insertend(struct node *start){
+    struct node *new, *ptr, *preptr;
+    new=malloc(sizeof(struct node));
+    if(new==NULL){
+        printf("Overflow");
+    }
+    else{
+        printf("Enter data");
+        scanf("%d", &new->data);
+        ptr=start;
+        while (ptr!=NULL)
+        {
+            preptr=ptr;
+            ptr=ptr->next;
+        }
+        new->prev=preptr;
+        new->next=NULL;
     }
     return start;
 }
