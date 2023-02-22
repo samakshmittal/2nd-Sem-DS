@@ -144,6 +144,7 @@ struct node *insertend(struct node *start){
             ptr=ptr->next;
         }
         new->prev=preptr;
+        preptr->next=new;
         new->next=NULL;
     }
     return start;
