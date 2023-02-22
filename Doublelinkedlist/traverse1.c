@@ -11,24 +11,21 @@ struct node *create(struct node *start){
     int num=0;
     printf("Enter -1 to stop");
     while(num!=-1){
-        scanf("%d", &num);
+        new=malloc(sizeof(struct node));
+        new->prev=NULL;
+        new->next=NULL;
+        printf("Enter data");
+        scanf("%d", &new->data);
         if(start==NULL){
-            new=malloc(sizeof(struct node));
-            new->prev=NULL;
-            new->next=NULL;
-            printf("Enter data");
-            scanf("%d", &new->data);
             start=new;
             preptr=new;
         }
         else{
-            new=malloc(sizeof(struct node));
-            new->prev=preptr;
             preptr->next=new;
-            printf("Enter data");
-            scanf("%d", &new->data);
-            ptr=new;
+            new->prev=preptr;
+            preptr=new;
         }
+        scanf("%d", &num);
     }
     return start;
 }
