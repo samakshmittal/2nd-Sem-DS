@@ -138,7 +138,7 @@ struct node *insertend(struct node *start){
         printf("Enter data");
         scanf("%d", &new->data);
         ptr=start;
-        while (ptr!=NULL)
+        while (ptr->next!=NULL)
         {
             preptr=ptr;
             ptr=ptr->next;
