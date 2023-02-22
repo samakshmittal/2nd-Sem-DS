@@ -119,12 +119,21 @@ struct node *insertbegin(struct node *start){
         printf("Overflow");
     }
     else{
-        printf("Enter data");
-        scanf("%d", &new->data);
-        new->prev=NULL;
-        new->next=start;
-        start->prev=new;
-        start=new;
+        if(start==NULL){
+            start=new;
+            new->prev=NULL;
+            new->next=NULL;
+            printf("Enter data");
+            scanf("%d", &new->data);
+        }
+        else{
+            printf("Enter data");
+            scanf("%d", &new->data);
+            new->prev=NULL;
+            new->next=start;
+            start->prev=new;
+            start=new;
+        }
     }
     return start;
 }
