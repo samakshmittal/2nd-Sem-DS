@@ -1,6 +1,5 @@
 #include <stdio.h>
 int top=-1, value;
-void enter(int stack[], int e);
 void display(int stack[]);
 void push(int stack[], int n);
 int pop(int stack[]);
@@ -9,33 +8,19 @@ int main(){
     printf("Enter size of array");
     scanf("%d", &n);
     int stack[n];
-    printf("Enter number of elements in array");
-    scanf("%d", &e);
-    if(e<=n){
-        enter(stack, e);
-        display(stack);
-        do{
-            printf("What do you want to do:\n1 for push\n2 for pop\n");
-            scanf("%d", &ch);
-            switch(ch){
-                case 1:
-                push(stack, n);
-                display(stack);
-                case 2:
-                pop(stack);
-                display(stack);
-            }
-        }while(ch!=3);
-    }
+    do{
+        printf("What do you want to do:\n1 for push\n2 for pop\n");
+        scanf("%d", &ch);
+        switch(ch){
+            case 1:
+            push(stack, n);
+            display(stack);
+            case 2:
+            pop(stack);
+            display(stack);
+        }
+    }while(ch!=3);
     return 0;
-}
-void enter(int stack[], int e){
-    int i;
-    printf("\nEnter values in array\n");
-    for(i=0; i<e; i++){
-        scanf("%d", &stack[i]);
-        top++;
-    }
 }
 void display(int stack[]){
     int i;
