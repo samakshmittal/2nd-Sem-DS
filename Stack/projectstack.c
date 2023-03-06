@@ -1,9 +1,9 @@
 #include <stdio.h>
-int top=-1;
+int top=-1, value;
 void enter(int stack[], int e);
 void display(int stack[]);
-int push(int stack[], int n);
-int pop(int stack[], int n);
+void push(int stack[], int n);
+int pop(int stack[]);
 int main(){
     int n, e, ch;
     printf("Enter size of array");
@@ -22,7 +22,7 @@ int main(){
                 push(stack, n);
                 display(stack);
                 case 2:
-                pop(stack, n);
+                pop(stack);
                 display(stack);
             }
         }while(ch!=3);
@@ -30,7 +30,7 @@ int main(){
     return 0;
 }
 void enter(int stack[], int e){
-    int i=0;
+    int i;
     printf("\nEnter values in array\n");
     for(i=0; i<e; i++){
         scanf("%d", &stack[i]);
@@ -48,8 +48,9 @@ void display(int stack[]){
             printf("%d ", stack[i]);
         }
     }
+    printf("\n");
 }
-int push(int stack[], int n){
+void push(int stack[], int n){
     int val;
     if (top==n-1){
         printf("\nOverflow\n");
@@ -61,11 +62,14 @@ int push(int stack[], int n){
         stack[top]=val;
     }
 }
-int pop(int stack[], int n){
+int pop(int stack[]){
     if (top==-1){
         printf("\nUnderflow\n");
+        return top;
     }
     else{
+        value=stack[top];
         top--;
+        return value;
     }
 }
