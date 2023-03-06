@@ -9,17 +9,23 @@ int main(){
     scanf("%d", &n);
     int stack[n];
     do{
-        printf("What do you want to do:\n1 for push\n2 for pop\n3 for display\n4 for exist\n5 for exit");
+        printf("\nWhat do you want to do:\n1 for push\n2 for pop\n3 for display\n5 for exit");
         scanf("%d", &ch);
         switch(ch){
             case 1:
             push(stack, n);
+            break;
             case 2:
-            pop(stack);
+            value=pop(stack);
+            if(value!=-1){
+                printf("%d\n", value);
+            }
+            break;
             case 3:
             display(stack);
+            break;
         }
-    }while(ch!=5);
+    }while(ch!=4);
     return 0;
 }
 void display(int stack[]){
@@ -36,7 +42,6 @@ void display(int stack[]){
     printf("\n");
 }
 void push(int stack[], int n){
-    int val;
     if (top==n-1){
         printf("\nOverflow\n");
     }
