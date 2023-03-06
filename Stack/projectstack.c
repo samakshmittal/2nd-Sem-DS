@@ -14,16 +14,18 @@ int main(){
     if(e<=n){
         enter(stack, e);
         display(stack);
-        printf("What do you want to do:\n1 for push\n2 for pop\n");
-        scanf("%d", &ch);
-        switch(ch){
-            case 1:
-            push(stack, n);
-            display(stack);
-            case 2:
-            pop(stack, n);
-            display(stack);
-        }
+        do{
+            printf("What do you want to do:\n1 for push\n2 for pop\n");
+            scanf("%d", &ch);
+            switch(ch){
+                case 1:
+                push(stack, n);
+                display(stack);
+                case 2:
+                pop(stack, n);
+                display(stack);
+            }
+        }while(ch!=3);
     }
     return 0;
 }
