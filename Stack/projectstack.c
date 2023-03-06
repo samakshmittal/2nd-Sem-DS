@@ -2,7 +2,7 @@
 int top=-1;
 void enter(int stack[], int e);
 void display(int stack[]);
-void push(int stack[], int n);
+int push(int stack[], int n);
 int pop(int stack[], int n);
 int main(){
     int n, e, ch;
@@ -49,7 +49,7 @@ void display(int stack[]){
         }
     }
 }
-void push(int stack[], int n){
+int push(int stack[], int n){
     int val;
     if (top==n-1){
         printf("\nOverflow\n");
