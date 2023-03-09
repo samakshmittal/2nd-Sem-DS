@@ -26,7 +26,7 @@ int main(){
             top = push(top);
             break;
             case 2:
-            //top = pop(top);
+            top = pop(top);
             break;
             case 3:
             top=display(top);
@@ -43,7 +43,7 @@ struct node *push(struct node *top){
     }
     else{
         printf("Enter data");
-        scanf("%d", new->data);
+        scanf("%d", &new->data);
         if(top==NULL){
             top=new;
             new->next=NULL;
@@ -61,10 +61,22 @@ struct node *display(struct node *top){
     }
     else{
         ptr=top;
-        while(ptr->next!=NULL){
+        while(ptr!=NULL){
             printf("%d ", ptr->data);
             ptr=ptr->next;
         }
+    }
+    return top;
+}
+struct node *pop(struct node *top){
+    if(top==NULL){
+        printf("Underflow");
+    }
+    else{
+        ptr=top;
+        top=top->next;
+        printf("Value deleted is %d", ptr->data);
+        free(ptr);
     }
     return top;
 }
