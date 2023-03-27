@@ -13,8 +13,8 @@ int main(){
         p=malloc(sizeof(struct ab));
         scanf("%d", &p->data);
         p->next=NULL;
-        if(i==0){
-            head=p;
+        if(i==0){        
+                        head=p;
             prev=p;
         }
         else{
