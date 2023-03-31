@@ -91,10 +91,10 @@ void infixtopostfix(char source[], char target[]){
     target[j]='\0';
 }
 int getpriority(char op){
-    if (op=='/' || op=='%' || op=='*'){
+    if (op=='/' || op=='*' || op=='%'){
         return 1;
     }
-    else if(op=='=' || op=='-'){
+    else if(op=='+' || op=='-'){
         return 0;
     }
 }
