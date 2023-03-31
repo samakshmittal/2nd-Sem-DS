@@ -1,0 +1,1 @@
+isdigit(source[i]) || isalpha(source[i])
