@@ -80,22 +80,30 @@ int main(){
     }while(option!=13);
 }
 struct node *create(struct node *head){
-    int n, i;
-    printf("Enter maximum number of elements allowed in linkedlist");
-    scanf("%d", &n);
-    struct node *prev, *p;
-    for(i=0; i<n; i++){
-        p=malloc(sizeof(struct node));
-        scanf("%d", &p->data);
-        p->next=NULL;
-        if(i==0){
-            head=p;
-            prev=p;
+    int ch;
+    struct node *ptr, *preptr ;
+    printf("Enter -1 to stop");
+    scanf("%d",&ch);
+    while(ch!=-1){
+        ptr=malloc(sizeof(struct node));
+        if(ptr==NULL){
+            printf("Overflow");
         }
         else{
-            prev->next=p;
-            prev=p;
+            printf("Enter data");
+            scanf("%d", &ptr->data);
+           ptr->next=NULL;
+           if(head==NULL){
+           head=ptr;
+           preptr=head;
+           }
+           else{
+            preptr->next=ptr;
+            preptr=ptr;
+           }
         }
+        printf("enter -1 to stop");
+        scanf("%d",&ch);
     }
     return head;
 }
