@@ -30,6 +30,7 @@ struct node *push(struct node *top){
     return top;
 }
 struct node *pop(struct node *top){
+    struct node *ptr;
     if(top==NULL){
         printf("Underflow");
     }
