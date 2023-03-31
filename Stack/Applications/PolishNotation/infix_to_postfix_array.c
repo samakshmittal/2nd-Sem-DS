@@ -66,7 +66,7 @@ void infixtopostfix(char source[], char target[]){
             temp=pop(stack);
             i++;
         }
-        else if(isdigit(source[i]) || isalpha(source[i])){
+        else if((source[i]>='0' && source[i]<='9') || (source[i]>='A' && source[i]<='Z') || (source[i]>='a' && source[i]<='z')){
             target[j]=source[i];
             i++;
             j++;    
