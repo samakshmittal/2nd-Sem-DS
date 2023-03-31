@@ -40,15 +40,15 @@ int pop(char stack[]){
 void infixtopostfix(char source[], char target[]){
     int i=0, j=0;
     char temp;
-    // int x=strlen(source);
-    // source[x]=')';
-    // x++;
-    // int ub=x-1;
-    // while(ub>=i){
-    //     source[ub+1]=source[ub];
-    //     ub--;
-    // }
-    // source[i]='(';
+    int x=strlen(source);
+    source[x]=')';
+    x++;
+    int ub=x-1;
+    while(ub>=i){
+        source[ub+1]=source[ub];
+        ub--;
+    }
+    source[i]='(';
     while(source[i]!='\0'){
         if(source[i]=='('){
             push(stack, source[i]);
