@@ -113,6 +113,9 @@ int getpriority(char op){
     else if(op=='+' || op=='-'){
         return 0;
     }
+    else if(op=='^'){
+        return 0;
+    }
 }
 void infixtopostfix(struct node *infix, struct node *postfix){
     char temp;
