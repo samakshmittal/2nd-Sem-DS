@@ -5,7 +5,7 @@
 char stack[max];
 int top=-1;
 void push(char stack[], char val);
-int pop(char stack[]);
+char pop(char stack[]);
 void infixtopostfix(char source[], char target[]);
 int getpriority(char op);
 int main(){
@@ -26,7 +26,7 @@ void push(char stack[], char val){
         stack[top]=val;
     }
 }
-int pop(char stack[]){
+char pop(char stack[]){
     char val=' ';
     if(top==-1){
         printf("Underflow");
