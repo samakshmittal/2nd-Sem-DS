@@ -103,42 +103,42 @@ int getpriority(char op){
         return 0;
     }
 }
-void infixtopostfix(struct node *top, struct node *postfix){
+void infixtopostfix(struct node *infix, struct node *postfix){
     char temp;
     struct node *stack;
-    while(top!=NULL){
-        if(top->data=='('){
-            push(stack, top->data);
-            top=top->next;
+    while(infix!=NULL){
+        if(infix->data=='('){
+            push(stack, infix->data);
+            infix=infix->next;
         }
-        else if(top->data==')'){
-            while((top->data!=-1) && (top->data!='(')){
+        else if(infix->data==')'){
+            while((infix!=NULL) && (infix->data!='(')){
                 insert(postfix, pop(stack));
             }
-            if(top==NULL){
+            if(infix==NULL){
                 printf("Incorrect expression");
                 exit(1);
             }
             temp=pop(stack);
-            top=top->next;
+            infix=infix->next;
         }
-        else if((top->data>='0' && top->data<='9') || (top->data>='A' && top->data<='Z') || (top->data>='a' && top->data<='z')){
-            insert(postfix, top->data);
-            top=top->next;
+        else if((infix->data>='0' && infix->data<='9') || (infix->data>='A' && infix->data<='Z') || (infix->data>='a' && infix->data<='z')){
+            insert(postfix, infix->data);
+            infix=infix->next;
         }
-        else if(top->data=='+' || top->data=='-' || top->data=='*' || top->data=='/' || top->data=='%'){
-            while((top!=NULL) && (top->data!='(') && (getpriority(stack->data)>getpriority(top->data))){
-                push(postfix, pop(stack));
+        else if(infix->data=='+' || infix->data=='-' || infix->data=='*' || infix->data=='/' || infix->data=='%'){
+            while((infix!=NULL) && (infix->data!='(') && (getpriority(stack->data)>getpriority(infix->data))){
+                insert(postfix, pop(stack));
             }
-            push(stack, top->data);
-            top=top->next;
+            push(stack, infix->data);
+            infix=infix->next;
         }
         else{
             printf("Incorrect element in expression");
             exit(1);
         }
     }
-    while((top!=NULL) && (stack->data!='(')){
+    while((infix!=NULL) && (stack->data!='(')){
         insert(postfix, pop(stack));
     }
     postfix=display(postfix);
