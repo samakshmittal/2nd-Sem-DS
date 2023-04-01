@@ -113,13 +113,14 @@ void infixtopostfix(struct node *infix, struct node *postfix){
             printf("\nabcd");
         }
         else if(infix->data==')'){
+            
             while((infix!=NULL) && (stack->data!='(')){
                 insert(postfix, pop(stack));
                 printf("\nabcde");
             }
+            printf("\n123");
             if(infix==NULL){
-                printf("Incorrect expression");
-                printf("\nabcde");
+                printf("\nIncorrect expression");
                 exit(1);
             }
             printf("\nabcdefg");
@@ -130,6 +131,7 @@ void infixtopostfix(struct node *infix, struct node *postfix){
         else if((infix->data>='0' && infix->data<='9') || (infix->data>='A' && infix->data<='Z') || (infix->data>='a' && infix->data<='z')){
             insert(postfix, infix->data);
             infix=infix->next;
+            printf("\nabcdefgh");
         }
         else if(infix->data=='+' || infix->data=='-' || infix->data=='*' || infix->data=='/' || infix->data=='%'){
             
