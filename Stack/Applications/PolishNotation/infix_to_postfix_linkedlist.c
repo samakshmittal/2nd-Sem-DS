@@ -5,9 +5,10 @@ struct node {
     char data;
     struct node *next;
 };
+char val;
 struct node *top=NULL;
 struct node *push(struct node *top, char val);
-int pop(struct node *top);
+char pop(struct node *top);
 struct node *display(struct node *top);
 int main(){
     char infix[100], postfix[100];
@@ -18,7 +19,7 @@ int main(){
         infix1=push(infix1, infix[i]);
     }
     infix1=display(infix1);
-    printf(pop(infix1));
+    printf("%c", pop(infix1));
 }
 struct node *display(struct node *top){
     struct node *ptr;
@@ -53,8 +54,7 @@ struct node *push(struct node *top, char val){
     }
     return top;
 }
-int pop(struct node *top){
-    int val;
+char pop(struct node *top){
     struct node *ptr;
     if(top==NULL){
         printf("Underflow");
