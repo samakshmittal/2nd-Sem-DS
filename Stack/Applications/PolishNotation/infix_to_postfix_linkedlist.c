@@ -6,7 +6,7 @@ struct node {
     struct node *next;
 };
 char val;
-struct node *top=NULL, *head;
+struct node *top=NULL, *head, *postfix=NULL;
 struct node *insert(struct node *top, char val);
 char pop(struct node *top);
 struct node *push(struct node *top, char val);
@@ -31,7 +31,7 @@ int main(){
 struct node *display(struct node *head){
     struct node *ptr;
     if (head==NULL){
-        printf("Stack is empty");
+        printf("\nStack is empty");
     }
     else{
         ptr=head;
@@ -129,7 +129,6 @@ void infixtopostfix(struct node *infix, struct node *postfix){
         else if((infix->data>='0' && infix->data<='9') || (infix->data>='A' && infix->data<='Z') || (infix->data>='a' && infix->data<='z')){
             insert(postfix, infix->data);
             infix=infix->next;
-            printf("\nabcdefgh");
         }
         else if(infix->data=='+' || infix->data=='-' || infix->data=='*' || infix->data=='/' || infix->data=='%'){
             
