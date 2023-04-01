@@ -113,9 +113,7 @@ void infixtopostfix(struct node *infix, struct node *postfix){
             printf("\nabcd");
         }
         else if(infix->data==')'){
-            
-            while((infix!=NULL) && (stack->data!='(')){
-                printf("\n1234");
+            while((stack->data!='(')){
                 insert(postfix, pop(stack));
                 printf("\nabcde");
             }
