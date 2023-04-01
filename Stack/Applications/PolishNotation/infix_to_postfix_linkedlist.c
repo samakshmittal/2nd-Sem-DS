@@ -1,11 +1,37 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 struct node {
     char data;
     struct node *next;
 };
 struct node *top=NULL;
-char str[];
+struct node *push(struct node *top, char val);
+int pop(struct node *top);
+void print1(struct node *top);
+int main(){
+    char infix[100], postfix[100];
+    printf("\nEnter infix expression : ");
+    gets(infix);
+    struct node *infix1;
+    for(int i=0; i<strlen(infix); i++){
+        push(infix1, infix[i]);
+    }
+    print1(infix1);
+}
+void print1(struct node *top){
+    struct node *ptr;
+    if (top==NULL){
+        printf("Stack is empty");
+    }
+    else{
+        ptr=top;
+        while(ptr!=NULL){
+            printf("%c", ptr->data);
+            ptr=ptr->next;
+        }
+    }
+}
 struct node *push(struct node *top, char val){
     struct node *new;
     new=malloc(sizeof(struct node));
@@ -25,7 +51,7 @@ struct node *push(struct node *top, char val){
     }
     return top;
 }
-struct node *pop(struct node *top){
+int pop(struct node *top){
     int val;
     struct node *ptr;
     if(top==NULL){
@@ -37,5 +63,29 @@ struct node *pop(struct node *top){
         val=ptr->data;
         free(ptr);
     }
-    return top;
+    return val;
+}
+int getpriority(char op){
+    if(op=='*' || op=='/' || op=='%'){
+        return 1;
+    }
+    else if(op=='+' || op=='-'){
+        return 0;
+    }
+}
+void infixtopostfix(struct node *top, struct node *postfix){
+    char temp;
+    struct node *stack;
+    while(top->data!='\0'){
+        if(top->data=='('){
+            push(stack, top->data);
+            top=top->next;
+        }
+        else if(top->data==')'){
+            while((top->data!=-1) && (top->data!='(')){
+                push(postfix, pop(stack));
+                postfix=postfix->next;
+            }
+        }
+    }
 }
