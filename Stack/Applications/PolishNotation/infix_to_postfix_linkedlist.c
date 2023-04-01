@@ -141,7 +141,6 @@ void infixtopostfix(struct node *infix, struct node *postfix){
             
         }
         else if((infix->data>='0' && infix->data<='9') || (infix->data>='A' && infix->data<='Z') || (infix->data>='a' && infix->data<='z')){
-            printf("\n%c\n", infix->data);
             postfix=insert(postfix, infix->data);
             infix=infix->next;
             printf("\nabcdefgh");
