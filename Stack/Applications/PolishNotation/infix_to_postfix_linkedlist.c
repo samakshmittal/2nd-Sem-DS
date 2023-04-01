@@ -6,8 +6,8 @@ struct node {
     struct node *next;
 };
 char val;
-struct node *top=NULL;
-struct node *push(struct node *top, char val);
+struct node *top=NULL, *head=NULL;
+struct node *insert(struct node *top, char val);
 char pop(struct node *top);
 int getpriority(char op);
 void infixtopostfix(struct node *top, struct node *postfix);
@@ -17,8 +17,8 @@ int main(){
     printf("\nEnter infix expression : ");
     gets(infix);
     struct node *infix1=NULL, *postfix;
-    for(int i=strlen(infix)-1; i>=0; i--){
-        infix1=push(infix1, infix[i]);
+    for(int i=0; i<strlen(infix); i++){
+        infix1=insert(infix1, infix[i]);
     }
     printf("Infix expression is : ");
     infix1=display(infix1);
@@ -41,21 +41,22 @@ struct node *display(struct node *top){
     }
     return top;
 }
-struct node *push(struct node *top, char val){
-    struct node *new;
-    new=malloc(sizeof(struct node));
-    if(new==NULL){
+struct node *insert(struct node *head, char val){
+    struct node *ptr, *preptr;
+    ptr=malloc(sizeof(struct node));
+    if(ptr==NULL){
         printf("Overflow");
     }
     else{
-        new->data=val;
-        if(top==NULL){
-            top=new;
-            new->next=NULL;
+        ptr->data=val;
+        ptr->next=NULL;
+        if(head==NULL){
+            head=ptr;
+            preptr=ptr;
         }
         else{
-            new->next=top;
-            top=new;
+            preptr->next=ptr;
+            preptr=ptr;
         }
     }
     return top;
@@ -84,7 +85,7 @@ int getpriority(char op){
 void infixtopostfix(struct node *top, struct node *postfix){
     char temp;
     struct node *stack;
-    while(top->data!='\0'){
+    while(top!=NULL){
         if(top->data=='('){
             push(stack, top->data);
             top=top->next;
@@ -119,6 +120,5 @@ void infixtopostfix(struct node *top, struct node *postfix){
     while((top!=NULL) && (stack->data!='(')){
         push(postfix, pop(stack));
     }
-    push(postfix, '\0');
     postfix=display(postfix);
 }
