@@ -106,17 +106,20 @@ void infixtopostfix(struct node *infix, struct node *postfix){
     char temp;
     struct node *stack;
     while(infix!=NULL){
+        printf("\nabc");
         if(infix->data=='('){
             push(stack, infix->data);
             infix=infix->next;
+            printf("\nabcd");
         }
         else if(infix->data==')'){
             while((infix!=NULL) && (infix->data!='(')){
                 insert(postfix, pop(stack));
-                infix=infix->next;
+                printf("\nabcde");
             }
             if(infix==NULL){
                 printf("Incorrect expression");
+                printf("\nabcde");
                 exit(1);
             }
             temp=pop(stack);
