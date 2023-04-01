@@ -9,7 +9,7 @@ char val;
 struct node *top=NULL, *head;
 struct node *insert(struct node *top, char val);
 char pop(struct node *top);
-struct node *push(struct node *top);
+struct node *push(struct node *top, char val);
 int getpriority(char op);
 void infixtopostfix(struct node *top, struct node *postfix);
 struct node *display(struct node *top);
@@ -17,15 +17,15 @@ int main(){
     char infix[100];
     printf("\nEnter infix expression : ");
     gets(infix);
-    struct node *infix1=NULL, *postfix;
+    struct node *infix1=NULL, *postfix=NULL;
     for(int i=0; i<strlen(infix); i++){
         infix1=insert(infix1, infix[i]);
     }
     printf("Infix expression is : ");
     infix1=display(infix1);
-    // infixtopostfix(infix1, postfix);
-    // printf("\nPostfix expression is : ");
-    // postfix=display(postfix);
+    infixtopostfix(infix1, postfix);
+    printf("\nPostfix expression is : ");
+    postfix=display(postfix);
     return 0;
 }
 struct node *display(struct node *head){
@@ -62,7 +62,7 @@ struct node *insert(struct node *head, char val){
     }
     return head;
 }
-struct node *push(struct node *top){
+struct node *push(struct node *top, char val){
     struct node *new;
     new=malloc(sizeof(struct node));
     if(new==NULL){
@@ -103,7 +103,7 @@ int getpriority(char op){
         return 0;
     }
 }
-/*void infixtopostfix(struct node *top, struct node *postfix){
+void infixtopostfix(struct node *top, struct node *postfix){
     char temp;
     struct node *stack;
     while(top!=NULL){
@@ -113,7 +113,7 @@ int getpriority(char op){
         }
         else if(top->data==')'){
             while((top->data!=-1) && (top->data!='(')){
-                push(postfix, pop(stack));
+                insert(postfix, pop(stack));
             }
             if(top==NULL){
                 printf("Incorrect expression");
@@ -123,7 +123,7 @@ int getpriority(char op){
             top=top->next;
         }
         else if((top->data>='0' && top->data<='9') || (top->data>='A' && top->data<='Z') || (top->data>='a' && top->data<='z')){
-            push(postfix, top->data);
+            insert(postfix, top->data);
             top=top->next;
         }
         else if(top->data=='+' || top->data=='-' || top->data=='*' || top->data=='/' || top->data=='%'){
@@ -139,7 +139,7 @@ int getpriority(char op){
         }
     }
     while((top!=NULL) && (stack->data!='(')){
-        push(postfix, pop(stack));
+        insert(postfix, pop(stack));
     }
     postfix=display(postfix);
-}*/
+}
