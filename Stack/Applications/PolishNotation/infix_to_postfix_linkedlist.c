@@ -9,6 +9,7 @@ char val;
 struct node *top=NULL, *head, *postfix=NULL;
 struct node *insert(struct node *top, char val);
 char pop(struct node *top);
+struct node *pop1(struct node *top);
 struct node *push(struct node *top, char val);
 int getpriority(char op);
 void infixtopostfix(struct node *top, struct node *postfix);
@@ -88,11 +89,22 @@ char pop(struct node *top){
     }
     else{
         ptr=top;
+        val=ptr->data;
+    }
+    return val;
+}
+struct node *pop1(struct node *top){
+    struct node *ptr;
+    if(top==NULL){
+        printf("Underflow");
+    }
+    else{
+        ptr=top;
         top=top->next;
         val=ptr->data;
         free(ptr);
     }
-    return val;
+    return top;
 }
 int getpriority(char op){
     if(op=='*' || op=='/' || op=='%'){
@@ -108,13 +120,14 @@ void infixtopostfix(struct node *infix, struct node *postfix){
     while(infix!=NULL){
         printf("\nabc");
         if(infix->data=='('){
-            push(stack, infix->data);
+            stack=push(stack, infix->data);
             infix=infix->next;
             printf("\nabcd");
         }
         else if(infix->data==')'){
-            while((stack->data!='(')){
-                insert(postfix, pop(stack));
+            while((infix!=NULL) && (stack->data!='(')){
+                postfix=insert(postfix, pop(stack));
+                stack=pop1(stack);
                 printf("\nabcde");
             }
             printf("\n123");
@@ -123,22 +136,24 @@ void infixtopostfix(struct node *infix, struct node *postfix){
                 exit(1);
             }
             printf("\nabcdefg");
-            temp=pop(stack);
+            stack=pop1(stack);
             infix=infix->next;
             
         }
         else if((infix->data>='0' && infix->data<='9') || (infix->data>='A' && infix->data<='Z') || (infix->data>='a' && infix->data<='z')){
-            insert(postfix, infix->data);
+            postfix=insert(postfix, infix->data);
+            postfix=display(postfix);
             infix=infix->next;
             printf("\nabcdefgh");
         }
         else if(infix->data=='+' || infix->data=='-' || infix->data=='*' || infix->data=='/' || infix->data=='%'){
             
             while((infix!=NULL) && (infix->data!='(') && (getpriority(stack->data)>getpriority(infix->data))){
-                insert(postfix, pop(stack));    
+                postfix=insert(postfix, pop(stack));
+                stack=pop1(stack);  
             }
             printf("\nabca");
-            push(stack, infix->data);
+            stack=push(stack, infix->data);
             infix=infix->next;
             
         }
@@ -148,7 +163,8 @@ void infixtopostfix(struct node *infix, struct node *postfix){
         }
     }
     while((infix!=NULL) && (stack->data!='(')){
-        insert(postfix, pop(stack));
+        postfix=insert(postfix, pop(stack));
+        stack=pop1(stack);
     }
     postfix=display(postfix);
 }
