@@ -6,9 +6,10 @@ struct node {
     struct node *next;
 };
 char val;
-struct node *top=NULL, *head=NULL;
+struct node *top=NULL, *head;
 struct node *insert(struct node *top, char val);
 char pop(struct node *top);
+struct node *push(struct node *top);
 int getpriority(char op);
 void infixtopostfix(struct node *top, struct node *postfix);
 struct node *display(struct node *top);
@@ -22,24 +23,24 @@ int main(){
     }
     printf("Infix expression is : ");
     infix1=display(infix1);
-    infixtopostfix(infix1, postfix);
-    printf("\nPostfix expression is : ");
-    postfix=display(postfix);
+    // infixtopostfix(infix1, postfix);
+    // printf("\nPostfix expression is : ");
+    // postfix=display(postfix);
     return 0;
 }
-struct node *display(struct node *top){
+struct node *display(struct node *head){
     struct node *ptr;
-    if (top==NULL){
+    if (head==NULL){
         printf("Stack is empty");
     }
     else{
-        ptr=top;
+        ptr=head;
         while(ptr!=NULL){
             printf("%c ", ptr->data);
             ptr=ptr->next;
         }
     }
-    return top;
+    return head;
 }
 struct node *insert(struct node *head, char val){
     struct node *ptr, *preptr;
@@ -57,6 +58,26 @@ struct node *insert(struct node *head, char val){
         else{
             preptr->next=ptr;
             preptr=ptr;
+        }
+    }
+    return head;
+}
+struct node *push(struct node *top){
+    struct node *new;
+    new=malloc(sizeof(struct node));
+    if(new==NULL){
+        printf("Overflow");
+    }
+    else{
+        printf("Enter data");
+        scanf("%d", &new->data);
+        if(top==NULL){
+            top=new;
+            new->next=NULL;
+        }
+        else{
+            new->next=top;
+            top=new;
         }
     }
     return top;
@@ -82,7 +103,7 @@ int getpriority(char op){
         return 0;
     }
 }
-void infixtopostfix(struct node *top, struct node *postfix){
+/*void infixtopostfix(struct node *top, struct node *postfix){
     char temp;
     struct node *stack;
     while(top!=NULL){
@@ -121,4 +142,4 @@ void infixtopostfix(struct node *top, struct node *postfix){
         push(postfix, pop(stack));
     }
     postfix=display(postfix);
-}
+}*/
