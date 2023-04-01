@@ -69,8 +69,7 @@ struct node *push(struct node *top, char val){
         printf("Overflow");
     }
     else{
-        printf("Enter data");
-        scanf("%d", &new->data);
+        new->data=val;
         if(top==NULL){
             top=new;
             new->next=NULL;
@@ -114,6 +113,7 @@ void infixtopostfix(struct node *infix, struct node *postfix){
         else if(infix->data==')'){
             while((infix!=NULL) && (infix->data!='(')){
                 insert(postfix, pop(stack));
+                infix=infix->next;
             }
             if(infix==NULL){
                 printf("Incorrect expression");
@@ -121,17 +121,21 @@ void infixtopostfix(struct node *infix, struct node *postfix){
             }
             temp=pop(stack);
             infix=infix->next;
+            printf("\nabcdefg");
         }
         else if((infix->data>='0' && infix->data<='9') || (infix->data>='A' && infix->data<='Z') || (infix->data>='a' && infix->data<='z')){
             insert(postfix, infix->data);
             infix=infix->next;
         }
         else if(infix->data=='+' || infix->data=='-' || infix->data=='*' || infix->data=='/' || infix->data=='%'){
+            
             while((infix!=NULL) && (infix->data!='(') && (getpriority(stack->data)>getpriority(infix->data))){
-                insert(postfix, pop(stack));
+                insert(postfix, pop(stack));    
             }
+            printf("\nabca");
             push(stack, infix->data);
             infix=infix->next;
+            
         }
         else{
             printf("Incorrect element in expression");
