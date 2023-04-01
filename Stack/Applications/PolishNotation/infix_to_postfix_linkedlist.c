@@ -8,7 +8,7 @@ struct node {
 struct node *top=NULL;
 struct node *push(struct node *top, char val);
 int pop(struct node *top);
-void print1(struct node *top);
+struct node *display(struct node *top);
 int main(){
     char infix[100], postfix[100];
     printf("\nEnter infix expression : ");
@@ -17,9 +17,9 @@ int main(){
     for(int i=0; i<strlen(infix); i++){
         push(infix1, infix[i]);
     }
-    print1(infix1);
+    display(infix1);
 }
-void print1(struct node *top){
+struct node *display(struct node *top){
     struct node *ptr;
     if (top==NULL){
         printf("Stack is empty");
@@ -27,10 +27,11 @@ void print1(struct node *top){
     else{
         ptr=top;
         while(ptr!=NULL){
-            printf("%c", ptr->data);
+            printf("%c ", ptr->data);
             ptr=ptr->next;
         }
     }
+    return top;
 }
 struct node *push(struct node *top, char val){
     struct node *new;
@@ -49,6 +50,7 @@ struct node *push(struct node *top, char val){
             top=new;
         }
     }
+    printf("%c ", top->data);
     return top;
 }
 int pop(struct node *top){
