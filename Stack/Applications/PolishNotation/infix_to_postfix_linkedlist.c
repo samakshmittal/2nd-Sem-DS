@@ -15,19 +15,9 @@ int main(){
     gets(infix);
     struct node *infix1=NULL;
     for(int i=0; i<strlen(infix); i++){
-        push(infix1, infix[i]);
+        infix1=push(infix1, infix[i]);
     }
-    struct node *ptr;
-    if (infix1==NULL){
-        printf("Stack is empty");
-    }
-    else{
-        ptr=infix1;
-        while(ptr!=NULL){
-            printf("%c ", ptr->data);
-            ptr=ptr->next;
-        }
-    }
+    infix1=display(infix1);
 }
 struct node *display(struct node *top){
     struct node *ptr;
