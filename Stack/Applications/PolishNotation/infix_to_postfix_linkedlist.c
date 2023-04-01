@@ -9,6 +9,8 @@ char val;
 struct node *top=NULL;
 struct node *push(struct node *top, char val);
 char pop(struct node *top);
+int getpriority(char op);
+struct node *infixtopostfix(struct node *top, struct node *postfix);
 struct node *display(struct node *top);
 int main(){
     char infix[100];
@@ -21,7 +23,7 @@ int main(){
     printf("Infix expression is : ");
     infix1=display(infix1);
     infixtopostfix(infix1, postfix);
-    printf("Postfix expression is : ");
+    printf("\nPostfix expression is : ");
     postfix=display(postfix);
     return 0;
 }
@@ -79,7 +81,7 @@ int getpriority(char op){
         return 0;
     }
 }
-void infixtopostfix(struct node *top, struct node *postfix){
+struct node *infixtopostfix(struct node *top, struct node *postfix){
     char temp;
     struct node *stack;
     while(top->data!='\0'){
@@ -107,7 +109,7 @@ void infixtopostfix(struct node *top, struct node *postfix){
                 push(postfix, pop(stack));
             }
             push(stack, top->data);
-            top=top->data;
+            top=top->next;
         }
         else{
             printf("Incorrect element in expression");
@@ -118,4 +120,5 @@ void infixtopostfix(struct node *top, struct node *postfix){
         push(postfix, pop(stack));
     }
     push(postfix, '\0');
+    return postfix;
 }
