@@ -6,7 +6,7 @@ struct node {
     struct node *next;
 };
 char val;
-struct node *top=NULL, *head, *postfix=NULL;
+struct node *top=NULL, *head;
 struct node *insert(struct node *top, char val);
 char pop(struct node *top);
 struct node *pop1(struct node *top);
