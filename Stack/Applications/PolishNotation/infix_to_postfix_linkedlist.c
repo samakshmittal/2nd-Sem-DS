@@ -4,20 +4,16 @@ struct node {
     char data;
     struct node *next;
 };
-struct node *top=NULL, *new;
+struct node *top=NULL;
 char str[];
-char x;
-void enter(char str[]){
-    printf("Enter expression");
-    gets(str);
-}
-struct node *push(struct node *top){
+struct node *push(struct node *top, char val){
+    struct node *new;
     new=malloc(sizeof(struct node));
     if(new==NULL){
         printf("Overflow");
     }
     else{
-        new->data=x;
+        new->data=val;
         if(top==NULL){
             top=new;
             new->next=NULL;
@@ -30,6 +26,7 @@ struct node *push(struct node *top){
     return top;
 }
 struct node *pop(struct node *top){
+    int val;
     struct node *ptr;
     if(top==NULL){
         printf("Underflow");
@@ -37,7 +34,7 @@ struct node *pop(struct node *top){
     else{
         ptr=top;
         top=top->next;
-        printf("Value deleted is %d", ptr->data);
+        val=ptr->data;
         free(ptr);
     }
     return top;
