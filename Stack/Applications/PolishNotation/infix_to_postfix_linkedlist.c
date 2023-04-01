@@ -18,6 +18,7 @@ int main(){
         infix1=push(infix1, infix[i]);
     }
     infix1=display(infix1);
+    printf(pop(infix1));
 }
 struct node *display(struct node *top){
     struct node *ptr;
