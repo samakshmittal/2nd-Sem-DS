@@ -11,7 +11,7 @@ void push(char stack[], int val){
         stack[top]=val;
     }
 }
-int pop(char stack[]){
+char pop(char stack[]){
     char val;
     if(top==-1){
         printf("underflow");
