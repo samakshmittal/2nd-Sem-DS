@@ -71,7 +71,7 @@ void infixtopostfix(char source[], char target[]){
             i++;
         }
         else if(source[i]=='+' || source[i]=='-' || source[i]=='*' || source[i]=='/' || source[i]=='%'){
-            while((top!=1) && source[i]!='(' && (getpriority(stack[top])>getpriority(source[i]))){
+            while((top!=1) && (source[i]!='(') && (getpriority(stack[top])>getpriority(source[i]))){
                 target[j]=pop(stack);
                 j++;
             }
