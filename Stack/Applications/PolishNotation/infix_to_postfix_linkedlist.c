@@ -18,15 +18,15 @@ int main(){
     char infix[100];
     printf("\nEnter infix expression : ");
     gets(infix);
-    struct node *infix1=NULL, *postfix=NULL;
+    struct node *infix1=NULL, *postfix1=NULL;
     for(int i=0; i<strlen(infix); i++){
         infix1=insert(infix1, infix[i]);
     }
     printf("Infix expression is : ");
     infix1=display(infix1);
-    infixtopostfix(infix1, postfix);
+    infixtopostfix(infix1, postfix1);
     printf("\nPostfix expression is : ");
-    postfix=display(postfix);
+    postfix1=display(postfix1);
     return 0;
 }
 struct node *display(struct node *head){
@@ -142,7 +142,6 @@ void infixtopostfix(struct node *infix, struct node *postfix){
         }
         else if((infix->data>='0' && infix->data<='9') || (infix->data>='A' && infix->data<='Z') || (infix->data>='a' && infix->data<='z')){
             postfix=insert(postfix, infix->data);
-            postfix=display(postfix);
             infix=infix->next;
             printf("\nabcdefgh");
         }
