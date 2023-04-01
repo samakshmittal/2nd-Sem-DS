@@ -13,11 +13,21 @@ int main(){
     char infix[100], postfix[100];
     printf("\nEnter infix expression : ");
     gets(infix);
-    struct node *infix1;
+    struct node *infix1=NULL;
     for(int i=0; i<strlen(infix); i++){
         push(infix1, infix[i]);
     }
-    display(infix1);
+    struct node *ptr;
+    if (infix1==NULL){
+        printf("Stack is empty");
+    }
+    else{
+        ptr=infix1;
+        while(ptr!=NULL){
+            printf("%c ", ptr->data);
+            ptr=ptr->next;
+        }
+    }
 }
 struct node *display(struct node *top){
     struct node *ptr;
@@ -50,7 +60,6 @@ struct node *push(struct node *top, char val){
             top=new;
         }
     }
-    printf("%c ", top->data);
     return top;
 }
 int pop(struct node *top){
