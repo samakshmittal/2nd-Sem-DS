@@ -52,6 +52,11 @@ struct node *delete(struct node *front){
     if(ptr==NULL){
         printf("Underflow");
     }
+    else if(front==rear){
+        front=rear=NULL;
+        printf("Deleted element is : %d", ptr->data);
+        free(ptr);
+    }
     else{
         front=ptr->next;
         printf("Deleted element is : %d", ptr->data);
@@ -61,6 +66,9 @@ struct node *delete(struct node *front){
 }
 struct node *display(struct node *front){
     struct node *ptr=front;
+    if(ptr==NULL){
+        printf("Queue is empty");
+    }
     while(ptr!=NULL){
         printf("%d ", ptr->data);
         ptr=ptr->next;
