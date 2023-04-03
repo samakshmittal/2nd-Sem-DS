@@ -42,6 +42,11 @@ int main(){
         if(ptr==NULL){
             printf("Underflow");
         }
+        else if(front==rear){
+            front=rear=NULL;
+            printf("Deleted element is : %d", ptr->data);
+            free(ptr);
+        }
         else{
             front=ptr->next;
             printf("Deleted element is : %d\n", ptr->data);
