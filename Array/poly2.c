@@ -113,7 +113,8 @@
     k++;
   }
 
-  return(k); /* k is number of terms in resultant polynomial*/
+  retu
+  +rn(k); /* k is number of terms in resultant polynomial*/
  }
 
  void displayPoly(struct poly p[10],int term)
