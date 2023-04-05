@@ -4,7 +4,7 @@ void display(int stack[]);
 void push(int stack[], int n);
 int pop(int stack[]);
 int main(){
-    int n, e, ch;
+    int n, ch;
     printf("Enter size of array");
     scanf("%d", &n);
     int stack[n];
