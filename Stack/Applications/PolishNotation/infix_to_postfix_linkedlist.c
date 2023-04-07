@@ -29,7 +29,7 @@ int main(){
     postfix1=display(postfix1);
     return 0;
 }
-struct node *display(struct node *head){
+struct node *display(struct node *head){        //displaying expression using linkedlist
     struct node *ptr;
     if (head==NULL){
         printf("\nStack is empty");
@@ -43,7 +43,7 @@ struct node *display(struct node *head){
     }
     return head;
 }
-struct node *insert(struct node *head, char val){
+struct node *insert(struct node *head, char val){      //insertion of every element of expression in linkedlist
     struct node *ptr, *preptr;
     ptr=malloc(sizeof(struct node));
     if(ptr==NULL){
@@ -63,7 +63,7 @@ struct node *insert(struct node *head, char val){
     }
     return head;
 }
-struct node *push(struct node *top, char val){
+struct node *push(struct node *top, char val){           //pushing value in stack using linkedlist
     struct node *new;
     new=malloc(sizeof(struct node));
     if(new==NULL){
@@ -82,7 +82,7 @@ struct node *push(struct node *top, char val){
     }
     return top;
 }
-char pop(struct node *top){
+char pop(struct node *top){                  //returning value of stack after poping
     struct node *ptr;
     if(top==NULL){
         printf("Underflow");
@@ -93,7 +93,7 @@ char pop(struct node *top){
     }
     return val;
 }
-struct node *pop1(struct node *top){
+struct node *pop1(struct node *top){           //popping element from stack
     struct node *ptr;
     if(top==NULL){
         printf("Underflow");
