@@ -44,7 +44,7 @@ void insert(){
 void display(){
     if(front!=-1){
         for(i=front; i<=rear; i++){
-            printf("%d ", queue[i]);
+            printf("%d", queue[i]);
         }
     }
     else{
