@@ -8,16 +8,17 @@ struct node{
 struct node *root=NULL, *ptr, *ptr1, *preptr;
 void chec(struct node *ptr1, struct node *ptr){
     while(ptr1!=NULL){
-    if(ptr1->data>ptr->data){
-        preptr=ptr1;
-        ptr1=ptr1->left;
-        chec(ptr1, ptr);
+        if(ptr1->data>ptr->data){
+            preptr=ptr1;
+            ptr1=ptr1->left;
+            chec(ptr1, ptr);
+        }
+        else if(ptr1->data<ptr->data){
+            preptr=ptr1;
+            ptr1=ptr1->right;
+            chec(ptr1, ptr);
+        }
     }
-    else if(ptr1->data<ptr->data){
-        preptr=ptr1;
-        ptr1=ptr1->right;
-        chec(ptr1, ptr);
-    }}
 }
 struct node *search(struct node *root){
     int val;
