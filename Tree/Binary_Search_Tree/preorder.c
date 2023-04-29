@@ -21,11 +21,10 @@ void chec(struct node *ptr1, struct node *ptr){
     }
 }
 void preorder(struct node *ptr){
-    preptr=ptr;
-    while(preptr!=NULL){
-        printf("%d ", preptr->data);
+    if(ptr!=NULL){
+        printf("%d ", ptr->data);
         preorder(ptr->left);
-        preorder(preptr->right);
+        preorder(ptr->right);
     }
 }
 int main(){
