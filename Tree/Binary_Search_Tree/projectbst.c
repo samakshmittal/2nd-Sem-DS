@@ -14,7 +14,7 @@ void chec(struct node *ptr1, struct node *ptr){
             chec(ptr1, ptr);
         }
         else if(ptr1->data<ptr->data){
-            preptr=ptr1; 
+            preptr=ptr1;  
             ptr1=ptr1->right;
             chec(ptr1, ptr);
         }
