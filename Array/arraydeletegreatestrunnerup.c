@@ -13,7 +13,7 @@ int main(){
     printf("\n");
     printf("Array is : ");
     for(i=0; i<n; i++){                             //Print elements of array
-            printf("Value of a[%d]=%d\n",i, a[i]);
+            printf("Value of a[%d]=%d \n",i, a[i]);
     }
     for(i=0; i<n; i++){
         int z=0;                                    //rejecting small values
